@@ -1,1 +1,294 @@
-hi
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+:root {
+  /* color */
+  --color-gray: #8e8e8e;
+  --color-background: #fafafa;
+  --color-border: gainsboro;
+  --color-link: #0095f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+  .feedRight {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .navTextLogo {
+    margin-left: 20px;
+  }
+
+  .navLogos {
+    margin-left: auto;
+  }
+
+  .navSearch {
+    display: none;
+  }
+}
+
+.Main {
+  nav {
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    margin-bottom: 5vh;
+    border-bottom: 1px solid var(--color-border);
+    background-color: white;
+  }
+
+  .topMenuBar {
+    display: flex;
+    align-items: center;
+    width: 935px;
+    height: 60px;
+  }
+
+  .navTextLogo {
+    font-family: "Lobster", cursive;
+    font-size: 24px;
+  }
+
+  .navSearch {
+    width: 268px;
+    height: 36px;
+    margin: auto;
+    padding: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-background);
+  }
+
+  .navLogos {
+    position: relative;
+  }
+
+  .navLogo {
+    justify-content: space-around;
+    width: 24px;
+    margin-right: 10px;
+  }
+
+  .navLogoProfileHighlight {
+    border: 2px solid var(--color-link);
+    border-radius: 50%;
+  }
+
+  .navProfileTab {
+    position: absolute;
+    visibility: hidden;
+    top: 44px;
+    right: 0;
+    width: 100%;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background);
+    text-align: left;
+    z-index: 5;
+  }
+
+  .navProfileTabDetail {
+    padding: 10px;
+    color: var(--color-link);
+    border: 1px solid var(--color-border);
+  }
+
+  .main {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+  }
+
+  .feedMain {
+    width: 614px;
+    height: 100vh;
+    margin-right: 28px;
+  }
+
+  .feedPost {
+    margin-bottom: 20px;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+  }
+
+  .feedTop {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    img {
+      width: 40px;
+      margin-left: 10px;
+      border-radius: 50%;
+    }
+  }
+
+  .feedImg {
+    width: 100%;
+  }
+
+  .feedTopName {
+    margin-left: 15px;
+  }
+
+  .commentBox {
+    width: 100%;
+  }
+
+  .commentLogoBox {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px 10px 10px;
+  }
+
+  .rightLogo {
+    margin-left: auto;
+  }
+
+  .likes {
+    padding: 10px;
+    font-weight: 600;
+  }
+
+  .commentId {
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: 600;
+  }
+
+  .commentContent {
+    padding-top: 5px;
+    padding-left: 10px;
+  }
+
+  .comments {
+    padding-top: 15px;
+    padding-left: 10px;
+    color: var(--color-gray);
+  }
+
+  .commentPostList {
+    margin: 5px 0px 10px 10px;
+  }
+
+  .commentPost {
+    position: relative;
+    width: 100%;
+    padding-bottom: 5px;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .commentInputBox {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+    border: 0.5px solid var(--color-border);
+    img {
+      width: 25px;
+      margin-left: 10px;
+    }
+  }
+
+  .commentBtn {
+    width: 50px;
+    border: none;
+    background-color: white;
+  }
+
+  .commentInput {
+    width: 90%;
+    padding: 10px 10px 10px 20px;
+    border: none;
+    outline: none;
+  }
+
+  .deleteBtn {
+    position: absolute;
+    right: 20px;
+    border: 0px;
+    background-color: white;
+  }
+
+  .feedRight {
+    display: flex;
+    position: sticky;
+    flex-direction: column;
+    top: 100px;
+    width: 293px;
+    align-self: flex-start;
+    z-index: -1;
+  }
+
+  .feedRightProfile {
+    display: flex;
+    align-items: center;
+    img {
+      width: 56px;
+      margin-left: 5px;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+    }
+  }
+
+  .profileName {
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .profileKor {
+    padding-top: 5px;
+    color: var(--color-gray);
+    font-weight: 400;
+  }
+
+  .profileChange {
+    margin: 0px 0px 0px auto;
+    color: var(--color-link);
+    font-size: 14px;
+  }
+
+  .feedRightRecommendBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0px 20px 0px;
+  }
+
+  .RecommendText1 {
+    color: var(--color-gray);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .RecommendText2 {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .recommendFrineds {
+    width: 100%;
+  }
+
+  .freind1 {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+  }
+}

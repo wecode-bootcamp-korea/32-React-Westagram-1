@@ -16,7 +16,7 @@ import MainHyunsuk from "./pages/hyunsuk/Main/Main";
 import LoginKyusung from "./pages/kyusung/Login/Login";
 import MainKyusung from "./pages/kyusung/Main/Main";
 
-import App from "./App";
+import App from "./pages/App/App";
 
 function Router() {
   return (

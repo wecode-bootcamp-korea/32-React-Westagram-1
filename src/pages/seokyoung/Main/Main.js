@@ -1,7 +1,27 @@
 import "../Main/Main.scss";
 import Nav from "../../../components/Nav/Nav";
+import { useState } from "react";
+import Comments from "./comments/Comments";
 
 function Main() {
+  const [comments, setComments] = useState([
+    { id: 1, name: "도유혁", text: "이걸 못하네 ㅋㅋ" },
+  ]);
+  const [inputValue, setInputValue] = useState("");
+
+  function addComment(e) {
+    e.preventDefault();
+    setComments([
+      ...comments,
+      { id: e.target.id, name: "석영", text: inputValue },
+    ]);
+    setInputValue("");
+  }
+
+  function inputChange(e) {
+    setInputValue(e.target.value);
+  }
+
   return (
     <div className="Main">
       <Nav />
@@ -40,13 +60,22 @@ function Main() {
               <div className="commentId">heaundea_DDol</div>
               <p className="commentContent">똘이 너무 귀엽죠?</p>
               <p className="comments">댓글 271개 모두 보기</p>
-              <ul className="commentPostList" />
-              <form className="commentInputBox">
+              {/*  댓글 구현 */}
+              <ul className="commentPostList">
+                <li className="commentPost">
+                  <span>동혁</span>
+                  <div>집가고 싶어요</div>
+                  <button className="deleteBtn">삭젠</button>
+                </li>
+              </ul>
+              <Comments commentsList={comments} />
+              <form className="commentInputBox" onSubmit={addComment}>
                 <img src="images/seokyoung/smile.png" alt="이모티콘" />
                 <input
                   className="commentInput"
                   type="text"
                   placeholder="댓글 달기"
+                  onChange={inputChange}
                 />
                 <button className="commentBtn">게시</button>
               </form>

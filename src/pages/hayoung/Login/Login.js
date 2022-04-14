@@ -8,13 +8,17 @@ const Login = () => {
   const navigate = useNavigate();
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
+  const [btnChange, setBtnChange] = useState(true);
 
   const goToMain = () => {
     navigate("/main-hayoung");
   };
 
-  const handlePwInput = e => {
-    setUserPw(e.target.value);
+  const isValidation = e => {
+    const idValue = userId.includes("@");
+    const pwValue = userPw.length >= 5;
+
+    idValue && pwValue ? setBtnChange(false) : setBtnChange(true);
   };
 
   return (
@@ -27,15 +31,21 @@ const Login = () => {
           placeholder="전화번호, 사용자 이름 또는 이메일"
           value={userId}
           onChange={e => setUserId(e.target.value)}
+          onKeyUp={isValidation}
         />
         <input
           type="password"
           className="inputPw"
           placeholder="비밀번호"
           value={userPw}
-          onChange={handlePwInput}
+          onChange={e => setUserPw(e.target.value)}
+          onKeyUp={isValidation}
         />
-        <button className="login_btn" onClick={goToMain}>
+        <button
+          className={!btnChange ? "active" : "unactive"}
+          onClick={goToMain}
+          disabled={btnChange}
+        >
           로그인
         </button>
       </div>

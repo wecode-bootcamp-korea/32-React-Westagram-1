@@ -15,7 +15,7 @@ function CommentList({
           </a>
           <span className="post-comment-content">{commentItem.content}</span>
         </div>
-        <div className="post-comment-right">
+        <div className="post-comment-item-right">
           <button
             className={`button-heart ${commentItem.liked && "liked"}`}
             aria-label="like this comment"

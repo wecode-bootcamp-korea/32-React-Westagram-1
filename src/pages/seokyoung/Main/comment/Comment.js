@@ -2,10 +2,10 @@ import React from "react";
 
 function Comment({ comment }) {
   return (
-    <li key={comment.id}>
+    <li className="commentPost" key={comment.id}>
       <span>{comment.name}</span>
-      <div>{comment.text}</div>
-      <button>삭제</button>
+      <li>{comment.text}</li>
+      <i className="fa-solid fa-xmark deleteBtn" />
     </li>
   );
 }

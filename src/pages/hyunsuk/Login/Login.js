@@ -1,21 +1,32 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = props => {
-  // const [bgColor, setBgColor] = useState({ backgroundColor: "#c0dffd" });
-  // const [disabled, setDisabled] = useState(true);
-  // const btnOnAndOff = () => {
-  //   if (inputId && inputPw) {
-  //     setDisabled(false);
-  //     setBgColor({ backgroundColor: "blue" });
-  //   }
-  // };
-  const [inputId, setInputId] = useState();
-  const [inputPw, setInputPw] = useState();
-  const handleInput = event => {
+  const [inputId, setInputId] = useState("");
+  const [inputPw, setInputPw] = useState("");
+
+  const [disabled, setDisabled] = useState(true);
+  const [changeBgColor, setChangeBgColor] = useState({
+    backgroundColor: "#c0dffd",
+  });
+  const handleInputId = event => {
     setInputId(event.target.value);
+  };
+
+  const handleInputPw = event => {
     setInputPw(event.target.value);
+  };
+
+  const btnChange = (boolean, color) => {
+    setDisabled(boolean);
+    setChangeBgColor({ backgroundColor: `${color}` });
+  };
+
+  const valueCheck = () => {
+    inputPw.length >= 5 && inputId.includes("@")
+      ? btnChange(false, "blue")
+      : btnChange(true, "#c0dffd");
   };
 
   const navigate = useNavigate();
@@ -35,11 +46,8 @@ const Login = props => {
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               id="id"
-              // onChange={e => {
-              //   setInputId(e.target.value);
-              //   btnOnAndOff();
-              // }}
-              onChange={handleInput}
+              onChange={handleInputId}
+              onKeyUp={valueCheck}
             />
             <input
               className="userPw"
@@ -47,17 +55,14 @@ const Login = props => {
               type="password"
               placeholder="비밀번호"
               id="password"
-              // onChange={e => {
-              //   setInputPw(e.target.value);
-              //   btnOnAndOff();
-              // }}
-              onChange={handleInput}
+              onChange={handleInputPw}
+              onKeyUp={valueCheck}
             />
             <button
               id="button"
               onClick={moveToMain}
-              // style={bgColor}
-              disabled
+              disabled={disabled}
+              style={changeBgColor}
             >
               로그인
             </button>

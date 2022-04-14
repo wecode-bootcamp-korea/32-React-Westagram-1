@@ -4,7 +4,7 @@ function Comment({ comment }) {
   return (
     <li className="commentPost" key={comment.id}>
       <span>{comment.name}</span>
-      <li>{comment.text}</li>
+      <div>{comment.text}</div>
       <i className="fa-solid fa-xmark deleteBtn" />
     </li>
   );

@@ -8,7 +8,7 @@ function Aside() {
         <div className="aside-profile-left">
           <img
             alt="Profile of Hyeonsu Kim"
-            src="/images/user-profile.jpeg"
+            src="/images/hyeonsu/user-profile.jpeg"
             className="aside-profile-img"
           />
           <div className="aside-profile-id">
@@ -34,7 +34,7 @@ function Aside() {
             <div className="aside-recommend-item-left">
               <img
                 alt="Profile of Seongnam FC"
-                src="/images/user-profile-2.jpeg"
+                src="/images/hyeonsu/user-profile-2.jpeg"
                 className="aside-recommend-item-profile"
               />
               <div className="aside-recommend-item-content">
@@ -54,7 +54,7 @@ function Aside() {
             <div className="aside-recommend-item-left">
               <img
                 alt="Profile of Seongnam FC"
-                src="/images/user-profile-2.jpeg"
+                src="/images/hyeonsu/user-profile-2.jpeg"
                 className="aside-recommend-item-profile"
               />
               <div className="aside-recommend-item-content">
@@ -74,7 +74,7 @@ function Aside() {
             <div className="aside-recommend-item-left">
               <img
                 alt="Profile of Seongnam FC"
-                src="/images/user-profile-2.jpeg"
+                src="/images/hyeonsu/user-profile-2.jpeg"
                 className="aside-recommend-item-profile"
               />
               <div className="aside-recommend-item-content">
@@ -94,7 +94,7 @@ function Aside() {
             <div className="aside-recommend-item-left">
               <img
                 alt="Profile of Seongnam FC"
-                src="/images/user-profile-2.jpeg"
+                src="/images/hyeonsu/user-profile-2.jpeg"
                 className="aside-recommend-item-profile"
               />
               <div className="aside-recommend-item-content">
@@ -114,7 +114,7 @@ function Aside() {
             <div className="aside-recommend-item-left">
               <img
                 alt="Profile of Seongnam FC"
-                src="/images/user-profile-2.jpeg"
+                src="/images/hyeonsu/user-profile-2.jpeg"
                 className="aside-recommend-item-profile"
               />
               <div className="aside-recommend-item-content">

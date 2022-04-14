@@ -81,9 +81,7 @@ function Post({
         <div className="post-action-buttons">
           <div className="post-action-buttons-left">
             <button
-              className={`post-action-button button-heart ${
-                liked ? "liked" : ""
-              }`}
+              className={`post-action-button button-heart ${liked && "liked"}`}
               type="button"
               aria-label="Like this post"
               onClick={() => onPostLikeButtonClick(id)}
@@ -111,7 +109,7 @@ function Post({
           <div className="post-action-buttons-right">
             <button
               className={`post-action-button button-bookmark ${
-                bookmarked ? "bookmarked" : ""
+                bookmarked && "bookmarked"
               }`}
               type="button"
               aria-label="Bookmark this post"

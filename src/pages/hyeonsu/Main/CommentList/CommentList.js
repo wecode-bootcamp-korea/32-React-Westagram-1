@@ -17,7 +17,7 @@ function CommentList({
         </div>
         <div className="post-comment-right">
           <button
-            className={`button-heart ${commentItem.liked ? "liked" : ""}`}
+            className={`button-heart ${commentItem.liked && "liked"}`}
             aria-label="like this comment"
             onClick={() => onCommentLikeButtonClick(commentItem.id)}
             type="button"

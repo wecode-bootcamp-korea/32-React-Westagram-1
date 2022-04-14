@@ -6,9 +6,9 @@ function CommentList({
   onDeleteButtonClick,
   onCommentLikeButtonClick,
 }) {
-  const postCommentItem = comments.map((commentItem, index) => {
+  const postCommentItem = comments.map(commentItem => {
     return (
-      <li key={index} className="post-comment-item">
+      <li key={commentItem.id} className="post-comment-item">
         <div className="post-comment-item-left">
           <a href="#">
             <strong className="user-id">{commentItem.userId}</strong>
@@ -19,7 +19,7 @@ function CommentList({
           <button
             className={`button-heart ${commentItem.liked ? "liked" : ""}`}
             aria-label="like this comment"
-            onClick={() => onCommentLikeButtonClick(index)}
+            onClick={() => onCommentLikeButtonClick(commentItem.id)}
             type="button"
           >
             <i
@@ -31,7 +31,7 @@ function CommentList({
           <button
             className="button-delete"
             aria-label="delete this comment"
-            onClick={() => onDeleteButtonClick(index)}
+            onClick={() => onDeleteButtonClick(commentItem.id)}
           >
             <strong className="button-delete-strong">삭제</strong>
           </button>

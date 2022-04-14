@@ -20,6 +20,7 @@ function Post({
       setCommentList(prev => [
         ...prev,
         {
+          id: new Date().getTime(),
           userId: "garuda352",
           content: commentInput,
           liked: false,
@@ -34,15 +35,21 @@ function Post({
     setCommentInput(e.target.value);
   };
 
-  const onDeleteButtonClick = index => {
+  const onDeleteButtonClick = clickedItemId => {
     setCommentList(
-      [...commentList].filter((comment, commentIndex) => commentIndex !== index)
+      [...commentList].filter(comment => comment.id !== clickedItemId)
     );
   };
 
-  const onCommentLikeButtonClick = index => {
+  const onCommentLikeButtonClick = clickedItemId => {
     const commentListCopy = [...commentList];
-    commentListCopy[index].liked = !commentListCopy[index].liked;
+    const clickedItem =
+      commentListCopy[
+        commentListCopy.indexOf(
+          commentListCopy.filter(item => item.id === clickedItemId)[0]
+        )
+      ];
+    clickedItem.liked = !clickedItem.liked;
     setCommentList(commentListCopy);
   };
 

@@ -9,12 +9,16 @@ function Main() {
 
   function addComment(e) {
     e.preventDefault();
-    setComments([
-      ...comments,
-      { id: e.target.id, name: "석영", text: inputValue },
-    ]);
+    const copy = inputValue.slice().trim();
+    if (copy !== "") {
+      setComments([
+        ...comments,
+        { id: e.target.id, name: "석영", text: inputValue },
+      ]);
+    }
     setInputValue("");
   }
+  //state 값은 항상 복사해두기
 
   function inputChange(e) {
     setInputValue(e.target.value);

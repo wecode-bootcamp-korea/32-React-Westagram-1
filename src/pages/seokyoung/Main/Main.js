@@ -13,7 +13,7 @@ function Main() {
       ...comments,
       { id: e.target.id, name: "석영", text: inputValue },
     ]);
-    e.target.reset();
+    setInputValue("");
   }
 
   function inputChange(e) {
@@ -70,6 +70,7 @@ function Main() {
                   type="text"
                   placeholder="댓글 달기"
                   onChange={inputChange}
+                  value={inputValue}
                 />
                 <button className="commentBtn">게시</button>
               </form>

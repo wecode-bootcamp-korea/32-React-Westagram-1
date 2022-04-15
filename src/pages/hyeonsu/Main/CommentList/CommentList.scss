@@ -25,6 +25,14 @@
   &-right {
     flex-shrink: 0;
 
+    .button-heart {
+      &.liked {
+        .fa-heart {
+          color: $red;
+        }
+      }
+    }
+
     .fa-heart {
       margin-right: 8px;
     }

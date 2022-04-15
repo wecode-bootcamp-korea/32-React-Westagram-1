@@ -1,7 +1,7 @@
 import React from "react";
 import "./Aside.scss";
 
-function Aside() {
+const Aside = () => {
   return (
     <aside className="aside">
       <div className="aside-profile">
@@ -195,6 +195,6 @@ function Aside() {
       </footer>
     </aside>
   );
-}
+};
 
 export default Aside;

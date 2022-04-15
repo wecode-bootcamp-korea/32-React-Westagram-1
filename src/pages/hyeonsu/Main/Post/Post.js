@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import CommentList from "../CommentList/CommentList";
 import "./Post.scss";
 
-function Post({
+const Post = ({
   id,
   userId,
   liked,
   bookmarked,
   onPostLikeButtonClick,
   onPostBookmarkButtonClick,
-}) {
+}) => {
   const [commentList, setCommentList] = useState([]);
   const [commentInput, setCommentInput] = useState("");
 
@@ -174,6 +174,6 @@ function Post({
       </form>
     </article>
   );
-}
+};
 
 export default Post;

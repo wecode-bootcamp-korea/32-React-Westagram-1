@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Post from "../Post/Post";
 
-function Feed() {
+const Feed = () => {
   const [postArr, setPostArr] = useState(
     Array(5)
       .fill("a")
@@ -40,6 +40,6 @@ function Feed() {
   ));
 
   return <main className="feed">{postList}</main>;
-}
+};
 
 export default Feed;

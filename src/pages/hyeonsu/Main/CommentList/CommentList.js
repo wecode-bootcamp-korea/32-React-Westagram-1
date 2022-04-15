@@ -1,11 +1,11 @@
 import React from "react";
 import "./CommentList.scss";
 
-function CommentList({
+const CommentList = ({
   comments,
   onDeleteButtonClick,
   onCommentLikeButtonClick,
-}) {
+}) => {
   const postCommentItem = comments.map(commentItem => {
     return (
       <li key={commentItem.id} className="post-comment-item">
@@ -41,6 +41,6 @@ function CommentList({
   });
 
   return <ul className="post-comment-list">{postCommentItem}</ul>;
-}
+};
 
 export default CommentList;

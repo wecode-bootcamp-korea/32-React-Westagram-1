@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 
-function Login() {
+const Login = () => {
   const [isButtonValid, setIsButtonValid] = useState(false);
   const [crudentials, setCrudentials] = useState({
     id: "",
@@ -96,6 +96,6 @@ function Login() {
       </a>
     </div>
   );
-}
+};
 
 export default Login;

@@ -4,7 +4,7 @@ import Feed from "./Feed/Feed";
 import Aside from "./Aside/Aside";
 import "./Main.scss";
 
-function Main() {
+const Main = () => {
   return (
     <>
       <Nav />
@@ -14,6 +14,6 @@ function Main() {
       </div>
     </>
   );
-}
+};
 
 export default Main;

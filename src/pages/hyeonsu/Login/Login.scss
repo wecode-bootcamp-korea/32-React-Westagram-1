@@ -21,6 +21,22 @@
     width: 100%;
     margin-bottom: 50px;
 
+    .login-input-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: 15px;
+
+      .input-pw {
+        margin-bottom: 0;
+      }
+
+      .pw-show-button {
+        @include pos-center-y;
+        right: 4px;
+        text-align: right;
+      }
+    }
+
     .login-input {
       width: 100%;
       padding: 8px 10px;

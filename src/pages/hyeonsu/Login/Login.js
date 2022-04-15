@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss";
@@ -18,8 +18,20 @@ function Login() {
         [e.target.name]: e.target.value,
       };
     });
+  };
 
-    checkValidation();
+  const onPwShowButtonClick = e => {
+    e.preventDefault();
+    const pwInput = e.target.parentNode.querySelector("input");
+    const isTypePassword = pwInput.type === "password";
+
+    if (isTypePassword) {
+      pwInput.type = "text";
+      e.target.textContent = "숨기기";
+    } else {
+      pwInput.type = "password";
+      e.target.textContent = "비밀번호 표시";
+    }
   };
 
   const checkValidation = () => {
@@ -41,15 +53,14 @@ function Login() {
       : alert("회원정보가 일치하지 않습니다!");
   };
 
+  useEffect(() => {
+    checkValidation();
+  });
+
   return (
     <div className="login">
       <h1 className="login-title">westagram</h1>
-      <form
-        action="#"
-        className="login-inputs"
-        onKeyUp={handleChange}
-        onSubmit={handleSubmit}
-      >
+      <form action="#" className="login-inputs" onSubmit={handleSubmit}>
         <input
           className="login-input input-id"
           type="text"
@@ -58,14 +69,19 @@ function Login() {
           value={id}
           onChange={handleChange}
         />
-        <input
-          className="login-input input-pw"
-          type="password"
-          placeholder="비밀번호"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
+        <div className="login-input-wrapper">
+          <input
+            className="login-input input-pw"
+            type="password"
+            placeholder="비밀번호"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
+          <button onClick={onPwShowButtonClick} className="pw-show-button">
+            비밀번호 표시
+          </button>
+        </div>
 
         <button
           className="login-button"

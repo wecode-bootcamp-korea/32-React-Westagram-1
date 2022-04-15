@@ -1,8 +1,25 @@
 import React from "react";
+import { useState } from "react";
+
 import "./Main.css";
+
 import Nav from "../../../components/Nav/Nav";
 
-const Main = props => {
+const Main = () => {
+  const [comment, setComment] = useState("");
+  const [array, setArray] = useState([]);
+
+  const onClick = event => {
+    event.preventDefault();
+    // 복사해서  원본수정 방지
+    const newArr = [...array];
+    if (comment !== "") {
+      newArr.push({ id: "Hello", comment: comment });
+      setArray(newArr);
+    }
+    // 입력갑 초기화
+    setComment("");
+  };
   return (
     <>
       <Nav />
@@ -52,11 +69,30 @@ const Main = props => {
                 </div>
                 <div className="time-div">
                   <span className="time">42분 전</span>
+                  <ul>
+                    {array.map((e, i) => {
+                      return (
+                        <li className="commentLi" key={i}>
+                          <span className="commentSpan">{e.id}</span>
+                          <span>{e.comment}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
 
                 <form id="reply-form" className="reply">
-                  <input id="reply-input" placeholder="댓글 달기..." />
-                  <button id="reply-button">게시</button>
+                  <input
+                    id="reply-input"
+                    placeholder="댓글 달기..."
+                    onChange={e => {
+                      setComment(e.target.value);
+                    }}
+                    value={comment}
+                  />
+                  <button id="reply-button" onClick={onClick}>
+                    게시
+                  </button>
                 </form>
               </div>
             </article>

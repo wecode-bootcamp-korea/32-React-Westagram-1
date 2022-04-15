@@ -173,8 +173,15 @@
               margin-left: 10px;
               opacity: 0.5;
             }
-            p {
+
+            .commentLi {
+              display: flex;
               padding: 0 10px;
+              margin-top: 5px;
+              .commentSpan {
+                margin-right: 10px;
+                font-weight: 700;
+              }
             }
           }
           .reply {

@@ -9,9 +9,10 @@ const Login = () => {
     navigate("/main-kyusung");
   };
 
-  const [id, idChange] = useState("");
-  const [pw, pwChange] = useState("");
-  const isValid = id.includes("@") && pw.length > 7;
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
+
+  const isValid = id.includes("@") && pw.length > 7 ? true : false;
 
   return (
     <div className="container">
@@ -22,13 +23,13 @@ const Login = () => {
             id="login_id"
             typeof="text"
             placeholder="전화번호,사용자 이름 또는 이메일"
-            onChange={e => idChange(e.target.value)}
+            onChange={e => setId(e.target.value)}
           />
           <input
             type="password"
             id="password"
             placeholder="비밀번호"
-            onChange={e => pwChange(e.target.value)}
+            onChange={e => setPw(e.target.value)}
           />
           <button
             id="submit"

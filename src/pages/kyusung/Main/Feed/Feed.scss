@@ -1,0 +1,106 @@
+.mainPage {
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  padding-top: 100px;
+  background-color: #fafafa;
+
+  .feeds {
+    width: 40%;
+    background-color: #fff;
+    overflow: hidden;
+
+    .articleHeader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #b9b9b9;
+
+      .headerLeft {
+        display: flex;
+        align-items: center;
+        flex: 1 0 120px;
+        margin-left: 5px;
+
+        span {
+          font-size: 25px;
+          padding-top: 10px;
+          margin-left: 10px;
+        }
+      }
+
+      .headerRight {
+        display: flex;
+        align-items: center;
+        flex: 0 1 35px;
+      }
+    }
+    .feeds-img img {
+      max-width: 100%;
+      margin-bottom: -5px;
+    }
+    .feeds-img-info {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      padding-left: 28px;
+      border: 1px solid #b9b9b9;
+      line-height: 35px;
+
+      .likes {
+        display: flex;
+        align-items: center;
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 25px;
+        }
+        p {
+          margin-left: 10px;
+          font-size: 15px;
+        }
+        .author,
+        .countLikes {
+          font-weight: bold;
+        }
+        .blankImage {
+          width: 20px;
+          height: 20px;
+          border-radius: 22px;
+          background-color: gray;
+        }
+      }
+    }
+    .feeds-info-img i:nth-child(1) {
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .feeds-info-img .fa-solid {
+      color: red;
+    }
+    .feeds-info-img i:nth-last-child(1) {
+      position: absolute;
+      right: 0%;
+      margin: 10px 10px;
+    }
+
+    .comment {
+      position: relative;
+    }
+  }
+  #instaForm {
+    display: flex;
+    border: 1px solid #b9b9b9;
+
+    input {
+      width: 50%;
+      height: 30px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100px;
+      color: skyblue;
+    }
+  }
+}

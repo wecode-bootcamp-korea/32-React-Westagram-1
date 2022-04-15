@@ -1,0 +1,152 @@
+.main-right {
+  max-height: 505px;
+  margin-left: 60px;
+
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+  }
+  .rightHeader {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fafafa;
+
+    .header-name p {
+      font-weight: bolder;
+      font-size: 22px;
+      margin: 0 auto;
+    }
+    .bottomName {
+      display: flex;
+      justify-content: space-evenly;
+      font-size: 15px;
+      color: #a2a2a2;
+
+      div {
+        border-left: 3px solid #a2a2a2;
+        height: 20px;
+      }
+    }
+  }
+  .story {
+    height: 43%;
+    border: 1px solid #b9b9b9;
+    margin-top: 4px;
+    border-radius: 10px;
+    padding: 0 20px;
+    overflow: hidden;
+
+    .story-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      p {
+        color: #a2a2a2;
+        font-weight: bold;
+      }
+    }
+    .stories {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 60%;
+
+      .story-info {
+        display: flex;
+        align-items: center;
+        padding-bottom: 10px;
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 35px;
+          border: 3px solid rgb(228, 24, 89);
+        }
+        .story-info-el {
+          margin-left: 15px;
+
+          p {
+            font-size: 16px;
+          }
+          span {
+            color: #a2a2a2;
+          }
+        }
+      }
+    }
+  }
+  .recommend {
+    height: 20%;
+    border: 1px solid #b9b9b9;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 0 20px;
+    overflow: hidden;
+
+    .recommend-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      p {
+        color: #a2a2a2;
+        font-weight: bold;
+      }
+    }
+  }
+  .recommends {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+
+    .recommend-info {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-bottom: 10px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 35px;
+        border: 3px solid rgb(228, 24, 89);
+      }
+      .recommend-info-el {
+        margin-left: 15px;
+
+        p {
+          font-size: 16px;
+        }
+        span {
+          color: #a2a2a2;
+        }
+        span:nth-last-child(1) {
+          position: absolute;
+          right: 0;
+          border: none;
+          cursor: pointer;
+        }
+        .follow.true {
+          color: rgb(0, 0, 255);
+        }
+      }
+    }
+  }
+  .westagram-info {
+    max-width: 250px;
+    margin-top: 10px;
+    color: #a2a2a2;
+    span {
+      font-size: 14px;
+      color: #a2a2a2;
+    }
+    span:nth-last-child(1) {
+      display: block;
+      margin-top: 10px;
+    }
+  }
+}

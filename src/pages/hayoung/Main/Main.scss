@@ -94,6 +94,15 @@ body {
     margin-left: 18px;
     margin-right: 5px;
     font-size: 15px;
+
+    .comment {
+      display: flex;
+
+      .commentUserId {
+        font-weight: bold;
+        padding-right: 5px;
+      }
+    }
   }
 
   .comment_form {

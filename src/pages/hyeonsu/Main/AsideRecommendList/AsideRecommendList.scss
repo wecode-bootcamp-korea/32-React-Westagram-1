@@ -1,0 +1,9 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
+.aside-recommend {
+  &-list {
+    padding: 0;
+    list-style-type: none;
+  }
+}

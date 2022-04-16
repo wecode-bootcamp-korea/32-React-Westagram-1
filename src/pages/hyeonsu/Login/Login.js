@@ -5,6 +5,8 @@ import "./Login.scss";
 
 const Login = () => {
   const [isButtonValid, setIsButtonValid] = useState(false);
+  const [passwordInputType, setPasswordInputType] = useState("password");
+  const [pwShowButtonText, setPwShowButtonText] = useState("비밀번호 표시");
   const [crudentials, setCrudentials] = useState({
     id: "",
     password: "",
@@ -20,25 +22,14 @@ const Login = () => {
     });
   };
 
-  const onPwShowButtonClick = e => {
-    e.preventDefault();
-    const pwInput = e.target.parentNode.querySelector("input");
-    const isTypePassword = pwInput.type === "password";
-
-    if (isTypePassword) {
-      pwInput.type = "text";
-      e.target.textContent = "숨기기";
+  const onPwShowButtonClick = () => {
+    if (passwordInputType === "password") {
+      setPasswordInputType("text");
+      setPwShowButtonText("숨기기");
     } else {
-      pwInput.type = "password";
-      e.target.textContent = "비밀번호 표시";
+      setPasswordInputType("password");
+      setPwShowButtonText("비밀번호 표시");
     }
-  };
-
-  const checkValidation = () => {
-    const isIdValid = id.includes("@");
-    const isPwValid = password.length >= 5;
-
-    setIsButtonValid(isIdValid && isPwValid);
   };
 
   const navigate = useNavigate();
@@ -54,8 +45,11 @@ const Login = () => {
   };
 
   useEffect(() => {
-    checkValidation();
-  });
+    const isIdValid = id.includes("@");
+    const isPwValid = password.length >= 5;
+
+    setIsButtonValid(isIdValid && isPwValid);
+  }, [id, password]);
 
   return (
     <div className="login">
@@ -72,14 +66,18 @@ const Login = () => {
         <div className="login-input-wrapper">
           <input
             className="login-input input-pw"
-            type="password"
+            type={passwordInputType}
             placeholder="비밀번호"
             name="password"
             value={password}
             onChange={handleChange}
           />
-          <button onClick={onPwShowButtonClick} className="pw-show-button">
-            비밀번호 표시
+          <button
+            type="button"
+            onClick={onPwShowButtonClick}
+            className="pw-show-button"
+          >
+            {pwShowButtonText}
           </button>
         </div>
 

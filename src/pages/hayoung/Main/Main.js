@@ -11,7 +11,7 @@ function Main() {
   function addComment(e) {
     e.preventDefault();
     const newArr = [...commentArr];
-    newArr.push({ id: "love_Rumi", comment: inputCom });
+    newArr.push({ id: new Date(), userid: "love_Rumi", comment: inputCom });
     setCommentArr(newArr);
     setInputCom("");
   }
@@ -71,7 +71,6 @@ function Main() {
           <Comment arr={commentArr} />
           <form className="comment_form">
             <input
-              id="id"
               type="text"
               className="comment_input"
               placeholder="댓글 달기..."

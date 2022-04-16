@@ -90,17 +90,21 @@ body {
   }
 
   .comments {
-    width: 70%;
+    width: auto;
     margin-left: 18px;
     margin-right: 5px;
     font-size: 15px;
 
     .comment {
       display: flex;
+      width: 100%;
 
       .commentUserId {
         font-weight: bold;
         padding-right: 5px;
+      }
+      .deleteBtn {
+        margin-left: auto;
       }
     }
   }

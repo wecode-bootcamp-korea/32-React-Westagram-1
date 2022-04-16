@@ -3,23 +3,15 @@ import React from "react";
 const Comment = ({ arr }) => {
   return (
     <ul className="comments">
-      <li className="comment">
-        <span>
-          {arr.map((e, i) => (
-            <h1 className="commentUserId" key={i}>
-              {e.id}
-            </h1>
-          ))}
-        </span>
-        <div>
-          {arr.map((e, i) => (
-            <h1 className="userComment" key={i}>
-              {e.comment}
-            </h1>
-          ))}
-        </div>
-        <button className="deleteBtn"></button>
-      </li>
+      {arr.map(e => {
+        return (
+          <li className="comment" key={e.id}>
+            <h1 className="commentUserId">{e.userid}</h1>
+            <h1 className="userComment">{e.comment}</h1>
+            <button className="deleteBtn">삭제</button>
+          </li>
+        );
+      })}
     </ul>
   );
 };

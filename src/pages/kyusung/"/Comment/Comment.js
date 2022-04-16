@@ -16,7 +16,7 @@ function Comment({ commentList, handleDelete, changeIconHandler }) {
           </button>
           <i
             className={`${
-              commentItem.liked ? "fa-solid" : "fa-regular"
+              commentItem.heart ? "fa-solid" : "fa-regular"
             } fa-heart`}
             onClick={() => changeIconHandler(commentIndex)}
           />

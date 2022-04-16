@@ -15,7 +15,7 @@ const Feed = () => {
     e.preventDefault();
     if (userId !== "" && comment !== "") {
       const newArr = [...commentArray];
-      newArr.push({ userId: userId, comment: comment, liked: false });
+      newArr.push({ userId: userId, comment: comment, heart: false });
       setCommentArray(newArr);
       setUserId("");
       setUserComment("");
@@ -31,7 +31,7 @@ const Feed = () => {
 
   const changeIconHandler = index => {
     const onClickHeart = [...commentArray];
-    onClickHeart[index].liked = !onClickHeart[index].liked;
+    onClickHeart[index].heart = !onClickHeart[index].heart;
     setCommentArray(onClickHeart);
   };
   const iconHandler = e => {

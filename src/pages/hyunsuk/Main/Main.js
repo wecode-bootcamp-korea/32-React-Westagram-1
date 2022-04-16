@@ -15,7 +15,7 @@ const Main = () => {
     // 복사해서  원본수정 방지
     const newArr = [...array];
     if (comment !== "") {
-      newArr.push({ id: "Hello", comment: comment });
+      newArr.push({ id: Date.now(), userId: "hello", comment: comment });
       setArray(newArr);
     }
     // 입력갑 초기화

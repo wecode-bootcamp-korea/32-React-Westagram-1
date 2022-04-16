@@ -39,7 +39,7 @@ const Login = props => {
       <div className="LoginWrapper">
         <h1>Westagram</h1>
         <div className="loginDiv">
-          <form action="#">
+          <form action="#" onKeyUp={valueCheck}>
             <input
               className="userName"
               required
@@ -47,7 +47,7 @@ const Login = props => {
               placeholder="전화번호, 사용자 이름 또는 이메일"
               id="id"
               onChange={handleInputId}
-              onKeyUp={valueCheck}
+              // onKeyUp={valueCheck}
             />
             <input
               className="userPw"
@@ -56,7 +56,7 @@ const Login = props => {
               placeholder="비밀번호"
               id="password"
               onChange={handleInputPw}
-              onKeyUp={valueCheck}
+              // onKeyUp={valueCheck}
             />
             <button
               id="button"

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Nav from "../../../components/Nav/Nav";
+import Comment from "../Comment/Comment";
 
 import "./Main.scss";
 
@@ -67,25 +68,7 @@ function Main() {
             <span className="feed_user_id">Rumi_xoxo</span>
             <p>나는 귀엽다 😻</p>
           </div>
-          <ul className="comments">
-            <li className="comment">
-              <span>
-                {commentArr.map((e, i) => (
-                  <h1 className="commentUserId" key={i}>
-                    {e.id}
-                  </h1>
-                ))}
-              </span>
-              <div>
-                {commentArr.map((e, i) => (
-                  <h1 className="userComment" key={i}>
-                    {e.comment}
-                  </h1>
-                ))}
-              </div>
-              <button className="deleteBtn"></button>
-            </li>
-          </ul>
+          <Comment arr={commentArr} />
           <form className="comment_form">
             <input
               id="id"

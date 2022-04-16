@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./Main.css";
 
 import Nav from "../../../components/Nav/Nav";
+import Comment from "../Comment/Comment";
 
 const Main = () => {
   const [comment, setComment] = useState("");
@@ -67,18 +68,10 @@ const Main = () => {
                   <span>neceosecius</span>
                   <span>귀엽다~~ 😀</span>
                 </div>
+
                 <div className="time-div">
                   <span className="time">42분 전</span>
-                  <ul>
-                    {array.map((e, i) => {
-                      return (
-                        <li className="commentLi" key={i}>
-                          <span className="commentSpan">{e.id}</span>
-                          <span>{e.comment}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <Comment array={array} />
                 </div>
 
                 <form id="reply-form" className="reply">

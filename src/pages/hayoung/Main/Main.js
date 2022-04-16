@@ -11,9 +11,11 @@ function Main() {
   function addComment(e) {
     e.preventDefault();
     const newArr = [...commentArr];
-    newArr.push({ id: new Date(), userid: "love_Rumi", comment: inputCom });
-    setCommentArr(newArr);
-    setInputCom("");
+    if (inputCom.length > 0) {
+      newArr.push({ id: Date.now(), userid: "love_Rumi", comment: inputCom });
+      setCommentArr(newArr);
+      setInputCom("");
+    }
   }
 
   return (

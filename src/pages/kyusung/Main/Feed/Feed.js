@@ -6,32 +6,45 @@ import "./Feed.scss";
 const Feed = () => {
   const [userId, setUserId] = useState("");
   const [comment, setUserComment] = useState("");
+
   const [commentArray, setCommentArray] = useState([
-    { userId: "chlrbtjd", comment: "와 강아지 너무 예뻐요!" },
-    { userId: "Voyage_dev", comment: "피드 귀엽네요 맞팔했어용~" },
+    { idKey: 0, userId: "Voyage-dev", comment: "피드가 이쁘네요" },
+    { idKey: 1, userId: "CHLRBTJD", comment: "강아지가 예뻐요" },
   ]);
+
+  const [idKey, setIdKey] = useState(commentArray.length + 1);
 
   const handleCommentEnter = e => {
     e.preventDefault();
     if (userId !== "" && comment !== "") {
+      setIdKey(idKey + 1);
       const newArr = [...commentArray];
-      newArr.push({ userId: userId, comment: comment, heart: false });
+      newArr.push({
+        idKey: idKey,
+        userId: userId,
+        comment: comment,
+        heart: false,
+      });
       setCommentArray(newArr);
       setUserId("");
       setUserComment("");
     }
   };
 
-  const handleDelete = commentIndex => {
-    const comments = [...commentArray].filter(
-      (item, index) => index !== commentIndex
-    );
+  const handleDelete = idKey => {
+    // const comments = [...commentArray].filter((item, index) => index !== idKey);
+    const comments = [...commentArray].filter(comment => {
+      return comment.idKey !== idKey;
+    });
+
     setCommentArray(comments);
   };
 
-  const changeIconHandler = index => {
+  const changeIconHandler = idKey => {
     const onClickHeart = [...commentArray];
-    onClickHeart[index].heart = !onClickHeart[index].heart;
+    const a = onClickHeart.find(x => x.idKey === idKey);
+    a.heart = !a.heart;
+
     setCommentArray(onClickHeart);
   };
   const iconHandler = e => {

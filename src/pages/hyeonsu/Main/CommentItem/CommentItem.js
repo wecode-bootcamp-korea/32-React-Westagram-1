@@ -10,18 +10,20 @@ const CommentItem = ({
     <li className="post-comment-item">
       <div className="post-comment-item-left">
         <a href="#">
-          <strong className="user-id">{item.userId}</strong>
+          <strong className="user-id">{item.userName}</strong>
         </a>
         <span className="post-comment-content">{item.content}</span>
       </div>
       <div className="post-comment-item-right">
         <button
-          className={`button-heart ${item.liked && "liked"}`}
+          className={`button-heart ${item.isLiked && "liked"}`}
           aria-label="like this comment"
           onClick={() => onCommentLikeButtonClick(item.id)}
           type="button"
         >
-          <i className={`fa-heart ${item.liked ? "fa-solid" : "fa-regular"}`} />
+          <i
+            className={`fa-heart ${item.isLiked ? "fa-solid" : "fa-regular"}`}
+          />
         </button>
         <button
           className="button-delete"

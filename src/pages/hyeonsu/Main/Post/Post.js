@@ -1,32 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CommentList from "../CommentList/CommentList";
 import "./Post.scss";
 
 const Post = ({
   id,
-  userId,
-  liked,
-  bookmarked,
+  userName,
+  isLiked,
+  isBookmarked,
   onPostLikeButtonClick,
   onPostBookmarkButtonClick,
 }) => {
   const [commentList, setCommentList] = useState([]);
   const [commentInput, setCommentInput] = useState("");
-  const [commentCounter, setCommentCounter] = useState(1);
+  const [commentCounter, setCommentCounter] = useState(0);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/data/common/commentData.json")
+      .then(res => res.json())
+      .then(data => {
+        setCommentList(data);
+        setCommentCounter(data.length + 1);
+      });
+  }, []);
 
   const onSubmit = e => {
     e.preventDefault();
 
-    setCommentCounter(commentCounter => commentCounter + 1);
-
     if (commentInput.slice().trim().length > 0) {
+      setCommentCounter(commentCounter => commentCounter + 1);
+
       setCommentList(prev => [
         ...prev,
         {
           id: commentCounter,
-          userId: "garuda352",
+          userName: "garuda352",
           content: commentInput,
-          liked: false,
+          isLiked: false,
         },
       ]);
     }
@@ -46,13 +55,10 @@ const Post = ({
 
   const onCommentLikeButtonClick = clickedItemId => {
     const commentListCopy = [...commentList];
-    const clickedItem =
-      commentListCopy[
-        commentListCopy.indexOf(
-          commentListCopy.filter(item => item.id === clickedItemId)[0]
-        )
-      ];
-    clickedItem.liked = !clickedItem.liked;
+    const clickedItem = commentList.find(
+      comment => comment.id === clickedItemId
+    );
+    clickedItem.isLiked = !clickedItem.isLiked;
     setCommentList(commentListCopy);
   };
 
@@ -66,7 +72,7 @@ const Post = ({
               src="/images/hyeonsu/user-profile.jpeg"
               className="post-header-profile"
             />
-            <strong className="user-id">{userId}</strong>
+            <strong className="user-id">{userName}</strong>
           </a>
         </div>
         <div className="post-header-right">
@@ -84,13 +90,15 @@ const Post = ({
         <div className="post-action-buttons">
           <div className="post-action-buttons-left">
             <button
-              className={`post-action-button button-heart ${liked && "liked"}`}
+              className={`post-action-button button-heart ${
+                isLiked && "liked"
+              }`}
               type="button"
               aria-label="Like this post"
               onClick={() => onPostLikeButtonClick(id)}
             >
               <i
-                className={`${liked ? "fa-solid" : "fa-regular"} fa-heart`}
+                className={`${isLiked ? "fa-solid" : "fa-regular"} fa-heart`}
                 aria-hidden
               />
             </button>
@@ -112,7 +120,7 @@ const Post = ({
           <div className="post-action-buttons-right">
             <button
               className={`post-action-button button-bookmark ${
-                bookmarked && "bookmarked"
+                isBookmarked && "bookmarked"
               }`}
               type="button"
               aria-label="Bookmark this post"
@@ -120,7 +128,7 @@ const Post = ({
             >
               <i
                 className={`${
-                  bookmarked ? "fa-solid" : "fa-regular"
+                  isBookmarked ? "fa-solid" : "fa-regular"
                 } fa-bookmark`}
                 aria-hidden
               />

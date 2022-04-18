@@ -1,39 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Post from "../Post/Post";
 
 const Feed = () => {
-  const [postArr, setPostArr] = useState(
-    Array(5)
-      .fill("a")
-      .map((v, i) => {
-        return {
-          id: i,
-          userId: Math.random().toString(36).substring(2, 11),
-          liked: Math.floor(Math.random() * 2),
-          bookmarked: Math.floor(Math.random() * 2),
-        };
-      })
-  );
+  const [postArr, setPostArr] = useState([]);
 
-  const onPostLikeButtonClick = index => {
-    const postCopy = [...postArr];
-    postCopy[index].liked = !postCopy[index].liked;
-    setPostArr(postCopy);
+  useEffect(() => {
+    fetch("http://localhost:3000/data/hyeonsu/feedData.json")
+      .then(res => res.json())
+      .then(data => setPostArr(data));
+  }, []);
+
+  const onPostLikeButtonClick = clickedPostId => {
+    const postArrCopy = [...postArr];
+    const clickedPost = postArr.find(post => post.id === clickedPostId);
+    clickedPost.isLiked = !clickedPost.isLiked;
+    setPostArr(postArrCopy);
   };
 
-  const onPostBookmarkButtonClick = index => {
-    const postCopy = [...postArr];
-    postCopy[index].bookmarked = !postCopy[index].bookmarked;
-    setPostArr(postCopy);
+  const onPostBookmarkButtonClick = clickedPostId => {
+    const postArrCopy = [...postArr];
+    const clickedPost = postArr.find(post => post.id === clickedPostId);
+    clickedPost.isBookmarked = !clickedPost.isBookmarked;
+    setPostArr(postArrCopy);
   };
 
-  const postList = postArr.map((post, index) => (
+  const postList = postArr.map(post => (
     <Post
-      key={index}
+      key={post.id}
       id={post.id}
-      userId={post.userId}
-      liked={post.liked}
-      bookmarked={post.bookmarked}
+      userName={post.userName}
+      isLiked={post.isLiked}
+      isBookmarked={post.isBookmarked}
       onPostLikeButtonClick={onPostLikeButtonClick}
       onPostBookmarkButtonClick={onPostBookmarkButtonClick}
     />

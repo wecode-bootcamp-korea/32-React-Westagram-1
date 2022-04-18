@@ -12,12 +12,6 @@ function MainFeed() {
     { feedName: "syoung_h", img: "images/seokyoung/ddol.JPG" },
   ]);
 
-  //   <div className="feedTop">
-  //   <img src="images/seokyoung/feed.jpeg" alt="" />
-  //   <div className="feedTopName">{props.feedName}</div>
-  // </div>
-  // <img className="feedImg" src="props.img" alt="" />
-
   useEffect(() => {
     fetch("http://localhost:3000/data/common/commentData.json")
       .then(res => res.json())
@@ -30,7 +24,10 @@ function MainFeed() {
   useEffect(() => {
     fetch("http://localhost:3000/data/seokyoung/feedData.json")
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => {
+        console.log(res);
+        setFeed(res);
+      });
   }, []);
 
   function inputChange(e) {

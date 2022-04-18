@@ -1,4 +1,5 @@
 import React from "react";
+import "./comment.scss";
 
 const Comment = ({ arr }) => {
   return (

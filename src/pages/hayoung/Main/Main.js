@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Nav from "../../../components/Nav/Nav";
-import Comment from "../Comment/Comment";
+import Comment from "./Comment/Comment";
 
 import "./Main.scss";
 

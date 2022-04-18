@@ -3,11 +3,11 @@ import React from "react";
 const Comment = ({ array }) => {
   return (
     <ul>
-      {array.map(e => {
+      {array.map(comment => {
         return (
-          <li className="commentLi" key={e.id}>
-            <span className="commentSpan">{e.userId}</span>
-            <span>{e.comment}</span>
+          <li className="commentLi" key={comment.id}>
+            <span className="commentSpan">{comment.userName}</span>
+            <span>{comment.content}</span>
           </li>
         );
       })}

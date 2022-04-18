@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "../../../components/Nav/Nav";
 import Comment from "./Comment/Comment";
 
@@ -7,16 +7,31 @@ import "./Main.scss";
 function Main() {
   const [inputCom, setInputCom] = useState("");
   const [commentArr, setCommentArr] = useState([]);
+  // const [commentList, setCommentList] = useState([]);
 
   function addComment(e) {
     e.preventDefault();
     const newArr = [...commentArr];
     if (inputCom.length > 0) {
-      newArr.push({ id: Date.now(), userid: "love_Rumi", comment: inputCom });
+      newArr.push({
+        id: Date.now(),
+        userName: "love_Rumi",
+        content: inputCom,
+      });
       setCommentArr(newArr);
       setInputCom("");
     }
   }
+
+  useEffect(() => {
+    fetch("http://localhost:3000/data/common/commentData.json", {
+      method: "GET", // GET method는 기본값이라서 생략이 가능합니다.
+    }) // 예시코드에서는 이해를 돕기 위해 명시적으로 기입해뒀습니다.
+      .then(res => res.json())
+      .then(data => {
+        setCommentArr(data);
+      });
+  }, []);
 
   return (
     <>

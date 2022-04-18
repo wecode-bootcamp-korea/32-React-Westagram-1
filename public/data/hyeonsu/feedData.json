@@ -1,1 +1,32 @@
-[{ "id": 1 }]
+[
+  {
+    "id": 1,
+    "userName": "mqwsti68m",
+    "isLiked": true,
+    "isBookmarked": false
+  },
+  {
+    "id": 2,
+    "userName": "5x6fj39a0",
+    "isLiked": true,
+    "isBookmarked": true
+  },
+  {
+    "id": 3,
+    "userName": "dek6eydcj",
+    "isLiked": false,
+    "isBookmarked": false
+  },
+  {
+    "id": 4,
+    "userName": "3o6mbk36p",
+    "isLiked": false,
+    "isBookmarked": true
+  },
+  {
+    "id": 5,
+    "userName": "phm2ey72w",
+    "isLiked": true,
+    "isBookmarked": true
+  }
+]

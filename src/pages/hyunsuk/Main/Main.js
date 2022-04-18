@@ -14,7 +14,7 @@ const Main = () => {
     event.preventDefault();
     // 복사해서  원본수정 방지
     const newArr = [...array];
-    if (comment !== "") {
+    if (comment.trim() !== "") {
       newArr.push({ id: Date.now(), userId: "hello", comment: comment });
       setArray(newArr);
     }

@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-// import Comments from "../comments/Comments";
-// import CommentLogoBox from "./commentLogoBox/CommentLogoBox";
-// import InputBox from "./inputBox/InputBox";
 import FeedPost from "./feedPost/FeedPost";
 
 function MainFeed() {

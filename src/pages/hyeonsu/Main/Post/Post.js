@@ -12,15 +12,18 @@ const Post = ({
 }) => {
   const [commentList, setCommentList] = useState([]);
   const [commentInput, setCommentInput] = useState("");
+  const [commentCounter, setCommentCounter] = useState(1);
 
   const onSubmit = e => {
     e.preventDefault();
+
+    setCommentCounter(commentCounter => commentCounter + 1);
 
     if (commentInput.slice().trim().length > 0) {
       setCommentList(prev => [
         ...prev,
         {
-          id: new Date().getTime(),
+          id: commentCounter,
           userId: "garuda352",
           content: commentInput,
           liked: false,

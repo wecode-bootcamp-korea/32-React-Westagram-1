@@ -1,5 +1,8 @@
 import React from "react";
 
+import AsideStoryImg from "./AsideStoryImg";
+import { AsideInfo } from "./AsideInfo";
+
 import "./Aside.scss";
 
 const Aside = () => {
@@ -7,7 +10,7 @@ const Aside = () => {
     <aside className="aside">
       <article className="aside-header-article">
         <div className="first-section-article-pfdiv aside-wecode-div">
-          <img src="/images/hyunsuk/dogprofile.jpg" alt="profile" />
+          <img alt="profile-sm" src="/images/hyunsuk/dogprofile.jpg" />
           <div className="wecode-div">
             <span>wecode_bootcamp</span>
             <span>Wecode | 위코드</span>
@@ -19,27 +22,18 @@ const Aside = () => {
           <span>스토리</span>
           <span>모두 보기</span>
         </div>
-        <div className="story-img-div">
-          <img src="/images/hyunsuk/dogprofile.jpg" alt="" />
-          <div className="story-img-div-div">
-            <span>_yum_s</span>
-            <span>16분 전</span>
-          </div>
-        </div>
-        <div className="story-img-div">
-          <img src="images/hyunsuk/dogprofile.jpg" alt="" />
-          <div className="story-img-div-div">
-            <span>_yum_s</span>
-            <span>16분 전</span>
-          </div>
-        </div>
-        <div className="story-img-div">
-          <img src="images/hyunsuk/dogprofile.jpg" alt="" />
-          <div className="story-img-div-div">
-            <span>_yum_s</span>
-            <span>16분 전</span>
-          </div>
-        </div>
+
+        {AsideStoryImg.map((item, index) => {
+          return (
+            <div key={index} className="story-img-div">
+              <img alt="profile-sm" src={item.imgSrc} />
+              <div className="story-img-content">
+                <span>{item.userName}</span>
+                <span>{item.time}</span>
+              </div>
+            </div>
+          );
+        })}
       </article>
       <article className="aside-recommend-article">
         <div className="recommend-header-div">
@@ -48,7 +42,7 @@ const Aside = () => {
         </div>
         <div className="recommend-profile-div">
           <div className="recommend-wrapper">
-            <img src="images/hyunsuk/dogprofile.jpg" alt="" />
+            <img alt="profile-sm" src="images/hyunsuk/dogprofile.jpg" />
             <div className="story-img-div-div recommend-div">
               <span>_yum_s</span>
               <span>_legend_a님 외 2명이 ...</span>
@@ -58,7 +52,7 @@ const Aside = () => {
         </div>
         <div className="recommend-profile-div">
           <div className="recommend-wrapper">
-            <img src="images/hyunsuk/dogprofile.jpg" alt="" />
+            <img alt="profile-sm" src="images/hyunsuk/dogprofile.jpg" />
             <div className="story-img-div-div recommend-div">
               <span>_yum_s</span>
               <span>_legend_a님 외 2명이 ...</span>
@@ -68,7 +62,7 @@ const Aside = () => {
         </div>
         <div className="recommend-profile-div">
           <div className="recommend-wrapper">
-            <img src="images/hyunsuk/dogprofile.jpg" alt="" />
+            <img alt="profile-sm" src="images/hyunsuk/dogprofile.jpg" />
             <div className="story-img-div-div recommend-div">
               <span>_yum_s</span>
               <span>_legend_a님 외 2명이 ...</span>
@@ -79,12 +73,9 @@ const Aside = () => {
       </article>
       <article className="aside-info-article">
         <div className="info-article-div">
-          <span>Westagram 정보</span>
-          <span>.지원</span>
-          <span>.홍보 센터</span>
-          <span>.API</span>
-          <span>.해시태그</span>
-          <span>.언어</span>
+          {AsideInfo.map(item => {
+            return <span key={item.id}>{item.content}</span>;
+          })}
         </div>
 
         <div className="info-article-copy-div">&copy; 2022 위스타그램</div>

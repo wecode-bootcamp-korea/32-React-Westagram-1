@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import "./Login.css";
 import { useNavigate } from "react-router-dom";
+
+import "./Login.scss";
 
 const Login = () => {
   const [inputId, setInputId] = useState("");
   const [inputPw, setInputPw] = useState("");
 
   const [disabled, setDisabled] = useState(true);
-  const [changeBgColor, setChangeBgColor] = useState({
-    backgroundColor: "#c0dffd",
-  });
+  const [bgColor, setBgColor] = useState(false);
+
   const handleInputId = event => {
     setInputId(event.target.value);
   };
@@ -20,13 +20,13 @@ const Login = () => {
 
   const btnChange = (boolean, color) => {
     setDisabled(boolean);
-    setChangeBgColor({ backgroundColor: `${color}` });
+    setBgColor(color);
   };
 
   const valueCheck = () => {
     inputPw.length >= 5 && inputId.includes("@")
-      ? btnChange(false, "blue")
-      : btnChange(true, "#c0dffd");
+      ? btnChange(false, true)
+      : btnChange(true, false);
   };
 
   const navigate = useNavigate();
@@ -47,7 +47,6 @@ const Login = () => {
               placeholder="전화번호, 사용자 이름 또는 이메일"
               id="id"
               onChange={handleInputId}
-              // onKeyUp={valueCheck}
             />
             <input
               className="userPw"
@@ -56,13 +55,12 @@ const Login = () => {
               placeholder="비밀번호"
               id="password"
               onChange={handleInputPw}
-              // onKeyUp={valueCheck}
             />
             <button
+              className={bgColor ? "btnOn" : "btnOff"}
               id="button"
               onClick={moveToMain}
               disabled={disabled}
-              style={changeBgColor}
             >
               로그인
             </button>

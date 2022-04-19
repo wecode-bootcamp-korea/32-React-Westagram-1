@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 import Comment from "../Comment/Comment";
-import "./Feed.css";
 
-const Feed = ({ array, setComment, comment, click }) => {
+import "./Feed.scss";
+
+const Feed = ({ array, setComment, comment, onclick }) => {
   const [feedList, setFeedList] = useState([]);
+
+  const onChange = e => {
+    setComment(e.target.value);
+  };
 
   useEffect(() => {
     fetch("http://localhost:3000/data/hyunsuk/feedData.json", {
@@ -19,7 +24,7 @@ const Feed = ({ array, setComment, comment, click }) => {
       <article key={data.id} className="first-section-article">
         <div className="main-header-div">
           <div className="first-section-article-pfdiv">
-            <img src={data.img} alt="profile" />
+            <img alt={`data of ${data.userName}`} src={data.img} />
             <span>{data.userName}</span>
           </div>
           <div>
@@ -28,7 +33,7 @@ const Feed = ({ array, setComment, comment, click }) => {
         </div>
 
         <div className="main-header-img-div">
-          <img src={data.mainImg} alt="" />
+          <img alt="profile-big" src={data.mainImg} />
         </div>
 
         <div className="main-header-sub-div">
@@ -44,7 +49,7 @@ const Feed = ({ array, setComment, comment, click }) => {
           </div>
           <div className="main-header-sub-like-div">
             <div className="first-section-article-pfdiv">
-              <img src={data.img} alt="profile" />
+              <img alt="profile-sm" src={data.img} />
               <span>
                 {data.userName}
                 {data.likeMsg}
@@ -70,12 +75,10 @@ const Feed = ({ array, setComment, comment, click }) => {
             <input
               id="reply-input"
               placeholder="댓글 달기..."
-              onChange={e => {
-                setComment(e.target.value);
-              }}
+              onChange={onChange}
               value={comment}
             />
-            <button id="reply-button" onClick={click}>
+            <button id="reply-button" onClick={onclick}>
               게시
             </button>
           </form>

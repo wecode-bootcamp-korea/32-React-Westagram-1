@@ -1,17 +1,20 @@
 body {
   height: 500vh;
+
   #root {
     height: 500vh;
+
     .Main {
       height: 100%;
       margin-top: 90px;
+
       .main-nav {
-        padding: 0 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 0 10px;
         margin-bottom: 50px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 
         .main-nav-logo-div {
           display: flex;
@@ -19,9 +22,9 @@ body {
           align-items: center;
 
           h1 {
-            font-family: "Lobster", cursive;
             margin-left: 10px;
             padding-left: 10px;
+            font-family: "Lobster", cursive;
             font-size: 25px;
             font-weight: 900;
           }
@@ -66,6 +69,7 @@ body {
           }
         }
       }
+
       .main {
         display: flex;
         justify-content: center;

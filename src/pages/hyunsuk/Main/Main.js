@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import "./Main.css";
-
 import Nav from "../../../components/Nav/Nav";
 import Feed from "../Feed/Feed";
 import Aside from "../Aside/Aside";
+
+import "./Main.scss";
 
 const Main = () => {
   const [comment, setComment] = useState("");
@@ -23,13 +23,11 @@ const Main = () => {
 
   const onClick = event => {
     event.preventDefault();
-    // 복사해서  원본수정 방지
     const newArr = [...array];
     if (comment.trim() !== "") {
       newArr.push({ id: Date.now(), userName: "hello", content: comment });
       setArray(newArr);
     }
-    // 입력갑 초기화
     setComment("");
   };
 
@@ -40,7 +38,7 @@ const Main = () => {
         <main className="main">
           <section className="first-section">
             <Feed
-              click={onClick}
+              onclick={onClick}
               array={array}
               comment={comment}
               setComment={setComment}

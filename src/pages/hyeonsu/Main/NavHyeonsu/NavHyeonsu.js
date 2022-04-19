@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./NavHyeonsu.scss";
 import Dropdown from "./Dropdown/Dropdown";
 
 const NavHyeonsu = () => {
   const [isProfileSettingActive, setIsProfileSettingActive] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const [userData, setUserData] = useState([]);
+  const [searchResultArray, setSearchResultArray] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/data/hyeonsu/userData.json")
+      .then(res => res.json())
+      .then(data => {
+        setUserData(data);
+      });
+  }, []);
 
   const onProfileSettingButtonFocus = () => {
     setIsProfileSettingActive(true);
@@ -12,6 +23,16 @@ const NavHyeonsu = () => {
 
   const onProfileSettingButtonBlur = () => {
     setIsProfileSettingActive(false);
+  };
+
+  const onSearchInputChange = e => {
+    setSearchInput(e.target.value);
+
+    const filteredArray = [...userData].filter(item =>
+      item.userId.startsWith(e.target.value.toLowerCase())
+    );
+
+    setSearchResultArray(filteredArray);
   };
 
   const onSearchInputFocus = () => {
@@ -42,10 +63,16 @@ const NavHyeonsu = () => {
             className="gnb-search-input"
             type="text"
             placeholder="검색"
+            value={searchInput}
+            onChange={onSearchInputChange}
             onFocus={onSearchInputFocus}
             onBlur={onSearchInputBlur}
           />
-          <Dropdown type="searchResult" isActive={isSearchActive} />
+          <Dropdown
+            type="searchResult"
+            isActive={isSearchActive}
+            searchResultArray={searchResultArray}
+          />
         </div>
 
         <div className="gnb-button-group">

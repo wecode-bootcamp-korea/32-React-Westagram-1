@@ -1,9 +1,9 @@
 import React from "react";
 import Nav from "../../../components/Nav/Nav";
+import NavHyeonsu from "./NavHyeonsu/NavHyeonsu";
 import Feed from "./Feed/Feed";
 import Aside from "./Aside/Aside";
 import "./Main.scss";
-import NavHyeonsu from "./NavHyeonsu/NavHyeonsu";
 
 const Main = () => {
   return (

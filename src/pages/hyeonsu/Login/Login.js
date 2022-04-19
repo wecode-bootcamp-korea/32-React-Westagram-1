@@ -14,10 +14,12 @@ const Login = () => {
   const { id, password } = crudentials;
 
   const handleChange = e => {
+    const { name, value } = e.target;
+
     setCrudentials(prev => {
       return {
         ...prev,
-        [e.target.name]: e.target.value,
+        [name]: value,
       };
     });
   };

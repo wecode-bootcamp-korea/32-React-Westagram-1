@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from "react";
 import Nav from "../../../components/Nav/Nav";
 import Feed from "./Feed/Feed";
 import MainRight from "../Main/MainRight/MainRight";

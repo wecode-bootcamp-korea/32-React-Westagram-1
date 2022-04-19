@@ -48,39 +48,47 @@ const Feed = () => {
         <div className="feedIdProfile">
           <img
             className="feedIdPhoto"
+            alt="userPhoto"
             src="https://images.unsplash.com/photo-1574158622682-e40e69881006?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
           />
           <span className="feedIdName">{data.userName}</span>
           <img
             className="dot_icon"
+            alt="dot"
             src="https://cdn-icons-png.flaticon.com/512/512/512142.png"
           />
         </div>
         <img
           className="feedPhoto"
+          alt="feed photo"
           src="https://images.unsplash.com/photo-1649038578950-1a7087c87a8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2235&q=80"
         />
         <div className="feed_icons">
           <img
             className="heart_icon"
+            alt="heart icon"
             src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
           />
           <img
             className="bubble_icon"
+            alt="bubble icon"
             src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png"
           />
           <img
             className="download_icon"
+            alt="download icon"
             src="https://cdn-icons-png.flaticon.com/512/747/747416.png"
           />
           <img
             className="save_icon"
+            alt="save icon"
             src="https://cdn-icons-png.flaticon.com/512/84/84510.png"
           />
         </div>
         <div className="like_token">
           <img
             className="like_token_profile"
+            alt="like token icon"
             src="https://images.unsplash.com/photo-1606225457115-9b0de873c5db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
           />
           <p>

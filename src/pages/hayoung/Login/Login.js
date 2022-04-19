@@ -1,4 +1,5 @@
-/* eslint-disable */
+// eslint - disable;
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -6,19 +7,27 @@ import "./Login.scss";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [userId, setUserId] = useState("");
-  const [userPw, setUserPw] = useState("");
+  const [user, setUser] = useState({ id: "", pw: "" });
+  // const [userId, setUserId] = useState("");
+  // const [userPw, setUserPw] = useState("");
   const [btnChange, setBtnChange] = useState(true);
 
   const goToMain = () => {
     navigate("/main-hayoung");
   };
 
-  const isValidation = e => {
-    const idValue = userId.includes("@");
-    const pwValue = userPw.length >= 5;
+  const isValidation = () => {
+    const idValue = user.id.includes("@");
+    const pwValue = user.pw.length >= 5;
 
     idValue && pwValue ? setBtnChange(false) : setBtnChange(true);
+  };
+
+  const onChange = e => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -29,16 +38,18 @@ const Login = () => {
           type="text"
           className="inputId"
           placeholder="전화번호, 사용자 이름 또는 이메일"
-          value={userId}
-          onChange={e => setUserId(e.target.value)}
+          name="id"
+          value={user.id}
+          onChange={onChange}
           onKeyUp={isValidation}
         />
         <input
           type="password"
           className="inputPw"
           placeholder="비밀번호"
-          value={userPw}
-          onChange={e => setUserPw(e.target.value)}
+          name="pw"
+          value={user.pw}
+          onChange={onChange}
           onKeyUp={isValidation}
         />
         <button

@@ -8,6 +8,7 @@ const mainRight = () => {
       <div className="user_id">
         <img
           className="user_profile"
+          alt="user profile"
           src="https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"
         />
         <span className="user_id_name">
@@ -23,6 +24,7 @@ const mainRight = () => {
         <div className="story_id">
           <img
             className="story_id_profile"
+            alt="user profile photo"
             src="https://images.unsplash.com/photo-1649035571136-d2fe2a15b341?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
           />
           <span className="story_id_name">
@@ -33,6 +35,7 @@ const mainRight = () => {
         <div className="story_id">
           <img
             className="story_id_profile"
+            alt="user profile photo"
             src="https://images.unsplash.com/photo-1649026166267-5f474e9280e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
           />
           <span className="story_id_name">
@@ -43,6 +46,7 @@ const mainRight = () => {
         <div className="story_id">
           <img
             className="story_id_profile"
+            alt="user profile photo"
             src="https://images.unsplash.com/photo-1649009060896-119c6ef99a22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
           />
           <span className="story_id_name">
@@ -59,6 +63,7 @@ const mainRight = () => {
         <div className="recommend_id">
           <img
             className="recommend_id_profile"
+            alt="user profile photo"
             src="https://images.unsplash.com/photo-1649035571136-d2fe2a15b341?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
           />
           <span className="recommend_id_name">
@@ -70,6 +75,7 @@ const mainRight = () => {
         <div className="recommend_id">
           <img
             className="recommend_id_profile"
+            alt="user profile photo"
             src="https://images.unsplash.com/photo-1649026166267-5f474e9280e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
           />
           <span className="recommend_id_name">
@@ -83,6 +89,7 @@ const mainRight = () => {
         <div className="recommend_id">
           <img
             className="recommend_id_profile"
+            alt="user profile photo"
             src="https://images.unsplash.com/photo-1649009060896-119c6ef99a22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
           />
           <span className="recommend_id_name">

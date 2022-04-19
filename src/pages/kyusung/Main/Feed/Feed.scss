@@ -9,7 +9,9 @@
     width: 40%;
     background-color: #fff;
     overflow: hidden;
-
+    article {
+      padding-bottom: 25px;
+    }
     .articleHeader {
       display: flex;
       align-items: center;
@@ -21,6 +23,11 @@
         align-items: center;
         flex: 1 0 120px;
         margin-left: 5px;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 17px;
+        }
 
         span {
           font-size: 25px;

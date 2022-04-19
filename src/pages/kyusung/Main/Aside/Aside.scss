@@ -8,6 +8,7 @@
     height: 50px;
     border-radius: 35px;
   }
+
   .rightHeader {
     display: flex;
     justify-content: space-evenly;
@@ -19,6 +20,7 @@
       font-size: 22px;
       margin: 0 auto;
     }
+
     .bottomName {
       display: flex;
       justify-content: space-evenly;
@@ -31,6 +33,7 @@
       }
     }
   }
+
   .story {
     height: 43%;
     border: 1px solid #b9b9b9;
@@ -44,11 +47,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 0;
+
       p {
         color: #a2a2a2;
         font-weight: bold;
       }
     }
+
     .stories {
       display: flex;
       flex-direction: column;
@@ -66,12 +71,14 @@
           border-radius: 35px;
           border: 3px solid rgb(228, 24, 89);
         }
+
         .story-info-el {
           margin-left: 15px;
 
           p {
             font-size: 16px;
           }
+
           span {
             color: #a2a2a2;
           }
@@ -92,6 +99,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 0;
+
       p {
         color: #a2a2a2;
         font-weight: bold;
@@ -116,21 +124,25 @@
         border-radius: 35px;
         border: 3px solid rgb(228, 24, 89);
       }
+
       .recommend-info-el {
         margin-left: 15px;
 
         p {
           font-size: 16px;
         }
+
         span {
           color: #a2a2a2;
         }
+
         span:nth-last-child(1) {
           position: absolute;
           right: 0;
           border: none;
           cursor: pointer;
         }
+
         .follow.true {
           color: rgb(0, 0, 255);
         }
@@ -141,10 +153,12 @@
     max-width: 250px;
     margin-top: 10px;
     color: #a2a2a2;
+
     span {
       font-size: 14px;
       color: #a2a2a2;
     }
+
     span:nth-last-child(1) {
       display: block;
       margin-top: 10px;

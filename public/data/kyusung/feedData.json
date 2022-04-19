@@ -1,1 +1,132 @@
-[{ "id": 1 }]
+[
+  {
+    "id": 1,
+    "userName": "wecode",
+    "userImg": "/images/kyusung/me.png",
+    "feedImg": "/images/kyusung/westagramPuppy.jpg",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": "Hi there.",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": "Hey.",
+        "isLiked": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userName": "voyage",
+    "userImg": "/images/kyusung/me.png",
+    "feedImg": "/images/kyusung/westagramPuppy.jpg",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "나는 누구 여긴 어디?",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": "피드 이쁘네여",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": "당신은 누구인가여?",
+        "isLiked": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userName": "voyage",
+    "userImg": "/images/kyusung/me.png",
+    "feedImg": "/images/kyusung/westagramPuppy.jpg",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "나는 누구 여긴 어디?",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": "피드 이쁘네여",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": "당신은 누구인가여?",
+        "isLiked": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "userName": "voyage",
+    "userImg": "/images/kyusung/me.png",
+    "feedImg": "/images/kyusung/westagramPuppy.jpg",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "나는 누구 여긴 어디?",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": "피드 이쁘네여",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": "당신은 누구인가여?",
+        "isLiked": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "userName": "voyage",
+    "userImg": "/images/kyusung/me.png",
+    "feedImg": "/images/kyusung/westagramPuppy.jpg",
+    "comment": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "나는 누구 여긴 어디?",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": "피드 이쁘네여",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": "당신은 누구인가여?",
+        "isLiked": false
+      }
+    ]
+  }
+]

@@ -20,10 +20,8 @@
       font-size: 70px;
       font-weight: bold;
       text-align: center;
-      /* margin-top: 70px;
-      position: absolute;
-      width: 100%; */
     }
+
     .login {
       width: 100%;
       text-align: center;
@@ -38,6 +36,7 @@
         border-radius: 6px;
         padding: 9px 0 7px 8px;
       }
+
       button {
         width: 78%;
         height: 50px;
@@ -47,10 +46,12 @@
         background-color: #c4e1fb;
         cursor: pointer;
       }
+
       & button:enabled {
         background-color: rgb(26, 111, 207);
       }
     }
+
     .bottom {
       position: absolute;
       bottom: 0;

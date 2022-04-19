@@ -1,7 +1,6 @@
 import React from "react";
 
 const InputBox = props => {
-  console.log(props.inputChange);
   return (
     <form className="commentInputBox" onSubmit={props.addComment}>
       <img src="images/seokyoung/smile.png" alt="이모티콘" />

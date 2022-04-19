@@ -1,5 +1,14 @@
-fetch('http://localhost:3000/main-hayoung')
-  .then(res => res.json())
-  .then(res => {
-    // data를 응답 받은 후의 로직
-  });
+[
+  {
+    "id": 1,
+    "userName": "ha0__"
+  },
+  {
+    "id": 2,
+    "userName": "RRRRRRRRumi_"
+  },
+  {
+    "id": 3,
+    "userName": "Rumi_xoxo"
+  }
+]

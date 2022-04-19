@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import Comment from "../Comment/Comment";
-import MainRight from "../MainRight/MainRight";
 
 import "./Feed.scss";
 
 const Feed = () => {
   const [inputCom, setInputCom] = useState("");
   const [commentArr, setCommentArr] = useState([]);
+  const [feedList, setFeedList] = useState([]);
 
   function addComment(e) {
     e.preventDefault();
@@ -32,15 +32,25 @@ const Feed = () => {
       });
   }, []);
 
-  return (
-    <main>
+  useEffect(() => {
+    fetch("http://localhost:3000/data/hayoung/feedData.json", {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setFeedList(data);
+      });
+  }, []);
+
+  return feedList.map(data => {
+    return (
       <article className="feeds">
         <div className="feedIdProfile">
           <img
             className="feedIdPhoto"
             src="https://images.unsplash.com/photo-1574158622682-e40e69881006?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
           />
-          <span className="feedIdName">Rumi_xoxo</span>
+          <span className="feedIdName">{data.userName}</span>
           <img
             className="dot_icon"
             src="https://cdn-icons-png.flaticon.com/512/512/512142.png"
@@ -95,9 +105,8 @@ const Feed = () => {
           </button>
         </form>
       </article>
-      <MainRight />
-    </main>
-  );
+    );
+  });
 };
 
 export default Feed;

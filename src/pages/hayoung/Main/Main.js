@@ -1,6 +1,7 @@
 // import React, { useState, useEffect } from "react";
 import Nav from "../../../components/Nav/Nav";
 import Feed from "./Feed/Feed";
+import MainRight from "../Main/MainRight/MainRight";
 
 import "./Main.scss";
 
@@ -8,8 +9,14 @@ const Main = () => {
   return (
     <>
       <Nav />
-      <Feed />
-      <Feed />
+      <main>
+        <div>
+          <Feed />
+        </div>
+        <div>
+          <MainRight />
+        </div>
+      </main>
     </>
   );
 };

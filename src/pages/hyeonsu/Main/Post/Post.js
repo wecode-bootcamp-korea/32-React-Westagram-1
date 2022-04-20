@@ -12,6 +12,7 @@ const Post = ({
 }) => {
   const [commentList, setCommentList] = useState([]);
   const [commentInput, setCommentInput] = useState("");
+  const [isCommentButtonValid, setIsCommentButtonValid] = useState(false);
   const [commentCounter, setCommentCounter] = useState(0);
 
   useEffect(() => {
@@ -22,6 +23,12 @@ const Post = ({
         setCommentCounter(data.length + 1);
       });
   }, []);
+
+  useEffect(() => {
+    commentInput.length >= 1
+      ? setIsCommentButtonValid(true)
+      : setIsCommentButtonValid(false);
+  }, [commentInput]);
 
   const onSubmit = e => {
     e.preventDefault();
@@ -179,7 +186,11 @@ const Post = ({
           value={commentInput}
           onChange={onInputChange}
         />
-        <button className="post-comment-button" type="submit">
+        <button
+          className="post-comment-button"
+          type="submit"
+          disabled={!isCommentButtonValid}
+        >
           게시
         </button>
       </form>

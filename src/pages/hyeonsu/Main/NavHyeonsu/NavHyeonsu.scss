@@ -1,26 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
 
 .main-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;
-  border-bottom: 1px solid #dbdbdb;
+  background-color: $white;
+  border-bottom: 1px solid $border;
   z-index: 10;
 
   .gnb {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexbox(space-between);
+
     max-width: 935px;
     padding: 10px 24px;
     margin: 0 auto;
 
     &-logo {
       &-link {
-        display: flex;
-        align-items: center;
+        @include flexbox(flex-start);
       }
 
       &-img {
@@ -32,7 +32,7 @@
       }
 
       &-title {
-        color: #262626;
+        color: $primary;
         font-family: "Lobster", cursive;
 
         &::before {
@@ -40,7 +40,7 @@
           width: 1px;
           height: 1em;
           margin: 0 10px;
-          border-left: 2px solid #262626;
+          border-left: 2px solid $primary;
         }
       }
     }
@@ -60,11 +60,10 @@
         }
 
         .fa-magnifying-glass {
-          position: absolute;
-          top: 50%;
+          @include pos-center-y;
+
           left: calc(16px + 10px);
-          color: #8e8e8e;
-          transform: translateY(-50%);
+          color: $secondary;
         }
       }
 
@@ -77,7 +76,7 @@
         border-radius: 4px;
 
         &::placeholder {
-          color: #8e8e8e;
+          color: $secondary;
         }
       }
 
@@ -95,14 +94,11 @@
 
         &-item {
           a {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include flexbox(space-between);
           }
 
           &-left {
-            display: flex;
-            align-items: center;
+            @include flexbox(flex-start);
           }
 
           &-img {
@@ -120,7 +116,7 @@
           }
 
           &-username {
-            color: #8e8e8e;
+            color: $secondary;
             font-size: 14px;
           }
         }
@@ -128,7 +124,7 @@
     }
 
     &-button-group {
-      display: flex;
+      @include flexbox(flex-start, flex-start);
 
       .gnb-button {
         width: 24px;

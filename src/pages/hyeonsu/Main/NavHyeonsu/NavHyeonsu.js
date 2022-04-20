@@ -14,6 +14,7 @@ const NavHyeonsu = () => {
       .then(res => res.json())
       .then(data => {
         setUserData(data);
+        setSearchResultArray(data);
       });
   }, []);
 

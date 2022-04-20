@@ -1,1 +1,70 @@
-hi
+* {
+  box-sizing: border-box;
+}
+
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .LoginWrapper {
+    h1 {
+      display: flex;
+      justify-content: center;
+      font-family: "Lobster", cursive;
+      font-size: 60px;
+    }
+
+    .loginDiv {
+      display: flex;
+      justify-content: center;
+      height: 15%;
+      margin-top: 50px;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+      }
+
+      input {
+        padding: 20px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        &::placeholder {
+          opacity: 0.9;
+        }
+      }
+
+      .btnOff {
+        margin-bottom: 30px;
+        padding: 10px;
+        background-color: #c0dffd;
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      .btnOn {
+        margin-bottom: 30px;
+        padding: 10px;
+        background-color: blue;
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      a {
+        text-align: center;
+        text-decoration: none;
+
+        &:visited {
+          color: inherit;
+        }
+      }
+    }
+  }
+}

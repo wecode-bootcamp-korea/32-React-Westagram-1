@@ -17,19 +17,19 @@ function Login() {
   const active = values.text.includes("@") && values.password.length >= 8;
 
   const signUp = () => {
-    fetch("http://10.58.1.201:8000/users/signin", {
+    fetch("https://westagram-signup.herokuapp.com/signup", {
       method: "POST",
       body: JSON.stringify({
         email: values.text,
         password: values.password,
       }),
-    })
-      .then(res => res.json())
-      .then(result => {
-        result.message === "SUCCESS"
-          ? localStorage.setItem("token", result.access_token)
-          : alert("nop");
-      });
+    });
+    .then(res => res.json())
+    .then(result => {
+      result.message === "SUCCESS"
+        ? localStorage.setItem("token", result.access_token)
+        : alert("nop");
+    });
   };
 
   return (

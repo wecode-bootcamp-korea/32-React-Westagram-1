@@ -1,3 +1,15 @@
+@mixin activeBtn {
+  background-color: blue;
+  padding: 10px 0px;
+  border: none;
+  border-radius: 7px;
+  font-size: 17px;
+  color: white;
+  font-weight: bold;
+  margin: 15px 0px;
+  cursor: pointer;
+}
+
 .login {
   margin: 0 auto;
   margin-top: 70px;
@@ -37,31 +49,15 @@
     }
 
     .active {
-      background-color: blue;
-      padding: 10px 0px;
-      border: none;
-      border-radius: 7px;
-      font-size: 17px;
-      color: white;
-      font-weight: bold;
-      margin: 15px 0px;
-      cursor: pointer;
+      @include activeBtn;
     }
 
     .unactive {
-      background-color: blue;
+      @include activeBtn;
       opacity: 0.3;
-      padding: 10px 0px;
-      border: none;
-      border-radius: 7px;
-      font-size: 17px;
-      color: white;
-      font-weight: bold;
-      margin: 15px 0px;
-      cursor: pointer;
     }
 
-    .login_input button:disabled {
+    button:disabled {
       background-color: #c4e1fc;
     }
   }

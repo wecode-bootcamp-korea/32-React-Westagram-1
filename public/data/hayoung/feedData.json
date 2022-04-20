@@ -1,14 +1,17 @@
 [
   {
     "id": 1,
-    "userName": "ha0__"
+    "userName": "ha0__",
+    "feedImg": "/images/hayoung/cat1.jpg"
   },
   {
     "id": 2,
-    "userName": "RRRRRRRRumi_"
+    "userName": "RRRRRRRRumi_",
+    "feedImg": "/images/hayoung/Rumi.jpg"
   },
   {
     "id": 3,
-    "userName": "Rumi_xoxo"
+    "userName": "Rumi_xoxo",
+    "feedImg": "/images/hayoung/cat2.jpg"
   }
 ]

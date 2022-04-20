@@ -13,7 +13,7 @@ const Feed = () => {
     const newArr = [...commentArr];
     if (inputCom.length > 0) {
       newArr.push({
-        id: Date.now(),
+        id: 1,
         userName: "love_Rumi",
         content: inputCom,
       });
@@ -58,11 +58,7 @@ const Feed = () => {
             src="https://cdn-icons-png.flaticon.com/512/512/512142.png"
           />
         </div>
-        <img
-          className="feedPhoto"
-          alt="feed photo"
-          src="https://images.unsplash.com/photo-1649038578950-1a7087c87a8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2235&q=80"
-        />
+        <img className="feedPhoto" alt="feed photo" src={data.feedImg} />
         <div className="feed_icons">
           <img
             className="heart_icon"

@@ -1,5 +1,3 @@
-import Feed from "../Feed/Feed";
-
 import "./MainRight.scss";
 
 const mainRight = () => {

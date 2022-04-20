@@ -1,6 +1,5 @@
-// eslint - disable;
-
-import React, { useState } from "react";
+import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./Login.scss";
@@ -8,12 +7,25 @@ import "./Login.scss";
 const Login = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ id: "", pw: "" });
-  // const [userId, setUserId] = useState("");
-  // const [userPw, setUserPw] = useState("");
   const [btnChange, setBtnChange] = useState(true);
 
   const goToMain = () => {
-    navigate("/main-hayoung");
+    fetch("http://10.58.2.16:8000/users/signin", {
+      method: "POST",
+      body: JSON.stringify({
+        email: user.id,
+        password: user.pw,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === "SUCCESS") {
+          alert("축하");
+          navigate("/main-hayoung");
+        } else {
+          alert("수고");
+        }
+      });
   };
 
   const isValidation = () => {

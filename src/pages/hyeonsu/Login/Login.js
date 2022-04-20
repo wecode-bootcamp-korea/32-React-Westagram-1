@@ -35,28 +35,39 @@ const Login = () => {
   };
 
   const navigate = useNavigate();
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const isIdCorrect = id === "test@test.com";
-    const isPwCorrect = password === "asdf1234";
-
-    isIdCorrect && isPwCorrect
-      ? navigate("/main-hyeonsu")
-      : alert("회원정보가 일치하지 않습니다!");
-  };
 
   useEffect(() => {
     const isIdValid = id.includes("@");
-    const isPwValid = password.length >= 5;
+    const isPwValid = password.length >= 8;
 
     setIsButtonValid(isIdValid && isPwValid);
   }, [id, password]);
 
+  const onSubmit = e => {
+    e.preventDefault();
+
+    fetch("http://10.58.1.245:8000/users/signin", {
+      method: "POST",
+      body: JSON.stringify({
+        email: id,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(json => {
+        if (json.message === "SUCCESS") {
+          localStorage.setItem("token", json.access_token);
+          navigate("/main-hyeonsu");
+        } else {
+          alert("일치하지 않는 정보입니다!");
+        }
+      });
+  };
+
   return (
     <div className="login">
       <h1 className="login-title">westagram</h1>
-      <form action="#" className="login-inputs" onSubmit={handleSubmit}>
+      <form action="#" className="login-inputs" onSubmit={onSubmit}>
         <input
           className="login-input input-id"
           type="text"

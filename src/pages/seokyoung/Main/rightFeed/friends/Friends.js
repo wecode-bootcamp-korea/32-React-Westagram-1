@@ -7,9 +7,9 @@ function Friends() {
   return (
     <div className="recommendFrineds">
       <div className="freinds">
-        <Friend />
-        <Friend />
-        <Friend />
+        {[1, 2, 3].map(x => (
+          <Friend key={x} />
+        ))}
       </div>
     </div>
   );

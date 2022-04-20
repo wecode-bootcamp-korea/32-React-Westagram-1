@@ -2,10 +2,10 @@ import React from "react";
 
 import "./Comment.scss";
 
-const Comment = ({ array }) => {
+const Comment = ({ commentArray }) => {
   return (
     <ul>
-      {array.map(comment => {
+      {commentArray.map(comment => {
         return (
           <li className="commentLi" key={comment.id}>
             <span className="commentSpan">{comment.userName}</span>

@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import Comment from "../Comment/Comment";
+import Comments from "../Comments/Comments";
 
 import "./Feed.scss";
 
-const Feed = ({ array, setComment, comment, onclick }) => {
+const Feed = () => {
   const [feedList, setFeedList] = useState([]);
-
-  const onChange = e => {
-    setComment(e.target.value);
-  };
 
   useEffect(() => {
     fetch("http://localhost:3000/data/hyunsuk/feedData.json", {
@@ -47,6 +43,7 @@ const Feed = ({ array, setComment, comment, onclick }) => {
               <i className="fa-solid fa-bookmark" />
             </div>
           </div>
+
           <div className="main-header-sub-like-div">
             <div className="first-section-article-pfdiv">
               <img alt="profile-sm" src={data.img} />
@@ -56,11 +53,13 @@ const Feed = ({ array, setComment, comment, onclick }) => {
               </span>
             </div>
           </div>
+
           <div className="main-header-sub-comment-div">
             <span>{data.userName}</span>
             <span>{data.uploadMsg}</span>
             <a href="#">더 보기</a>
           </div>
+
           <div className="main-header-sub-comment-div">
             <span>{data.userName2}</span>
             <span>{data.uploadMsg2}</span>
@@ -68,20 +67,9 @@ const Feed = ({ array, setComment, comment, onclick }) => {
 
           <div className="time-div">
             <span className="time">{data.timeMsg}</span>
-            <Comment array={array} />
           </div>
 
-          <form id="reply-form" className="reply">
-            <input
-              id="reply-input"
-              placeholder="댓글 달기..."
-              onChange={onChange}
-              value={comment}
-            />
-            <button id="reply-button" onClick={onclick}>
-              게시
-            </button>
-          </form>
+          <Comments />
         </div>
       </article>
     );

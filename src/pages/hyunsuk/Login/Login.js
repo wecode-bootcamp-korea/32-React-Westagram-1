@@ -24,14 +24,32 @@ const Login = () => {
   };
 
   const valueCheck = () => {
-    inputPw.length >= 5 && inputId.includes("@")
+    inputPw.length >= 8 && inputId.includes("@")
       ? btnChange(false, true)
       : btnChange(true, false);
   };
 
   const navigate = useNavigate();
-  const moveToMain = () => {
-    navigate("/main-hyunsuk");
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    fetch("http://10.58.1.245:8000/users/signin", {
+      method: "POST",
+      body: JSON.stringify({
+        email: inputId,
+        password: inputPw,
+      }),
+    })
+      .then(response => response.json())
+      .then(json => {
+        if (json.message === "SUCCESS") {
+          navigate("/main-hyunsuk");
+          localStorage.setItem("token", json.access_token);
+        } else {
+          alert("틀렸습니다");
+        }
+      });
   };
 
   return (
@@ -39,27 +57,23 @@ const Login = () => {
       <div className="LoginWrapper">
         <h1>Westagram</h1>
         <div className="loginDiv">
-          <form action="#" onKeyUp={valueCheck}>
+          <form action="#" onKeyUp={valueCheck} onSubmit={onSubmit}>
             <input
-              className="userName"
               required
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
-              id="id"
+              name="email"
               onChange={handleInputId}
             />
             <input
-              className="userPw"
               required
               type="password"
               placeholder="비밀번호"
-              id="password"
+              name="passWord"
               onChange={handleInputPw}
             />
             <button
               className={bgColor ? "btnOn" : "btnOff"}
-              id="button"
-              onClick={moveToMain}
               disabled={disabled}
             >
               로그인

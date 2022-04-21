@@ -45,14 +45,13 @@ function PutPostFeedHandler({
             </p>
           </div>
           <Comment
+            feedListId={data.id}
             commentList={data.comment}
             handleDelete={handleDelete}
             changeIconHandler={changeIconHandler}
           />
         </div>
-        <form id="instaForm">
-          <PostCommentInput data={data} addComment={addComment} />
-        </form>
+        <PostCommentInput data={data} addComment={addComment} />
       </article>
     );
   });

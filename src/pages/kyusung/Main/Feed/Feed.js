@@ -14,7 +14,8 @@ const Feed = () => {
         setFeedList(data);
       });
   }, []);
-  const addComment = (id, userName, content) => {
+  const addComment = (e, id, userName, content) => {
+    e.preventDefault();
     const newFeedList = [...feedList];
     const currentIdx = feedList.findIndex(el => el.id === id);
     const currentFeed = feedList[currentIdx];
@@ -29,22 +30,23 @@ const Feed = () => {
 
     setFeedList(newFeedList);
   };
-  const changeIconHandler = idKey => {
+
+  const changeIconHandler = (idKey, feedListId) => {
     const onClickHeart = [...feedList];
-
-    const currentHeart = onClickHeart.find(el => el.id === idKey);
-    console.log(currentHeart.comment[idKey].isLiked);
-    // const changeHandler =
-    //   !onClickHeart[currentHeart].comment[currentHeart].isLiked;
-    // console.log(changeHandler);
-
+    const currentHeart = onClickHeart[feedListId - 1].comment.find(
+      el => el.id === idKey
+    );
+    currentHeart.isLiked = !currentHeart.isLiked;
     setFeedList(onClickHeart);
   };
 
-  const handleDelete = idKey => {
-    const comments = [...feedList].filter(comment => {
+  const handleDelete = (idKey, feedListId) => {
+    const comments = [...feedList];
+    const commentDelete = comments[feedListId - 1].comment.filter(comment => {
       return comment.id !== idKey;
     });
+    comments[feedListId - 1].comment = commentDelete;
+
     setFeedList(comments);
   };
 

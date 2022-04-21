@@ -1,6 +1,6 @@
 import "./Comment.scss";
 
-function Comment({ commentList, handleDelete, changeIconHandler }) {
+function Comment({ commentList, handleDelete, changeIconHandler, feedListId }) {
   const postComment = commentList.map(commentItem => {
     return (
       <li key={commentItem.id}>
@@ -9,7 +9,7 @@ function Comment({ commentList, handleDelete, changeIconHandler }) {
         <div className="comments-right-info">
           <button
             className="deleteComments"
-            onClick={() => handleDelete(commentItem.id)}
+            onClick={() => handleDelete(commentItem.id, feedListId)}
           >
             삭제
           </button>
@@ -17,7 +17,7 @@ function Comment({ commentList, handleDelete, changeIconHandler }) {
             className={`${
               commentItem.isLiked ? "fa-solid" : "fa-regular"
             } fa-heart`}
-            onClick={() => changeIconHandler(commentItem.id)}
+            onClick={() => changeIconHandler(commentItem.id, feedListId)}
           />
         </div>
       </li>

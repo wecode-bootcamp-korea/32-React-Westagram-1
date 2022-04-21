@@ -5,7 +5,12 @@ function PostFeed({ data, addComment }) {
   const [comment, setComment] = useState("");
 
   return (
-    <>
+    <form
+      id="instaForm"
+      onSubmit={e => {
+        addComment(e, data.id, userId, comment);
+      }}
+    >
       <input
         id="username"
         type="text"
@@ -20,14 +25,10 @@ function PostFeed({ data, addComment }) {
         value={comment}
         onChange={e => setComment(e.target.value)}
       />
-      <button
-        id="submit"
-        type="button"
-        onClick={() => addComment(data.id, userId, comment)}
-      >
+      <button id="submit" type="submit">
         제출
       </button>
-    </>
+    </form>
   );
 }
 

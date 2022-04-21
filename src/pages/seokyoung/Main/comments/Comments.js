@@ -1,7 +1,7 @@
 import React from "react";
 import Comment from "../comment/Comment";
 
-function Comments({ commentsList, deleteBtn }) {
+const Comments = ({ commentsList, deleteBtn }) => {
   return (
     <ul className="commentPostList">
       {commentsList.map(item => (
@@ -14,6 +14,6 @@ function Comments({ commentsList, deleteBtn }) {
       ))}
     </ul>
   );
-}
+};
 
 export default Comments;

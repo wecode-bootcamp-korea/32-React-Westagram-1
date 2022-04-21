@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Comments from "../../comments/Comments";
 import CommentLogoBox from "../commentLogoBox/CommentLogoBox";
 import InputBox from "../inputBox/InputBox";
-import { useEffect, useState } from "react";
 
 const FeedPost = props => {
   const [comments, setComments] = useState([]);
@@ -18,11 +17,11 @@ const FeedPost = props => {
       });
   }, []);
 
-  function inputChange(e) {
+  const inputChange = e => {
     setInputValue(e.target.value);
-  }
+  };
 
-  function addComment(e) {
+  const addComment = e => {
     e.preventDefault();
     const copy = inputValue.slice().trim();
     if (copy !== "") {
@@ -33,12 +32,12 @@ const FeedPost = props => {
     }
     setKeyNum(prev => prev + 1);
     setInputValue("");
-  }
+  };
 
-  function deleteBtn(id) {
+  const deleteBtn = id => {
     const newCommentList = comments.filter(item => item.id !== id);
     setComments(newCommentList);
-  }
+  };
 
   const feedlist = props.feed.map((x, index) => {
     return (

@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Login() {
-  const [userInfo, setUserInfo] = useState({ text: "", password: "" });
-  const [isShowPw, setIsShowPw] = useState(false);
+  const [userInfo, setUserInfo] = useState({ inputId: "", inputPass: "" });
+  const [isShowPw, setIsShowPw] = useState(true);
 
   const isBtnActive =
     userInfo.text.includes("@") && userInfo.password.length >= 8;
+
   const navigate = useNavigate();
 
   const showPwBtn = () => {
@@ -15,7 +16,7 @@ function Login() {
   };
 
   const checkIdPw = e => {
-    setUserInfo({ ...userInfo, [e.target.type]: e.target.value });
+    setUserInfo({ ...userInfo, [e.target.id]: e.target.value });
   };
 
   const goToMain = () => {
@@ -23,7 +24,7 @@ function Login() {
   };
 
   const postUserData = () => {
-    fetch("https://westagram-signup.herokuapp.com/signup", {
+    fetch("", {
       method: "POST",
       body: JSON.stringify({
         email: userInfo.text,
@@ -54,9 +55,12 @@ function Login() {
             <input
               id="inputPass"
               className="inputUserInfo"
-              type={!isShowPw ? "text" : "password"}
+              type={isShowPw ? "password" : "text"}
               placeholder="비밀번호"
             />
+            <button type="button" onClick={showPwBtn}>
+              {isShowPw ? "비밀번호 보기" : "숨기기"}
+            </button>
           </form>
           <input
             id="loginBtn"
@@ -66,9 +70,6 @@ function Login() {
             disabled={!isBtnActive}
             onClick={postUserData}
           />
-          <button type="button" onClick={showPwBtn}>
-            {isShowPw ? "비밀번호 보기" : "숨기기"}
-          </button>
         </div>
         <a className="forgotPassword" href="main.html">
           비밀번호를 잊으셨나요?

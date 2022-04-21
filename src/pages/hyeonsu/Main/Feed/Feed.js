@@ -5,7 +5,7 @@ const Feed = () => {
   const [postArr, setPostArr] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/data/hyeonsu/feedData.json")
+    fetch("data/hyeonsu/feedData.json")
       .then(res => res.json())
       .then(data => setPostArr(data));
   }, []);
@@ -27,10 +27,7 @@ const Feed = () => {
   const postList = postArr.map(post => (
     <Post
       key={post.id}
-      id={post.id}
-      userName={post.userName}
-      isLiked={post.isLiked}
-      isBookmarked={post.isBookmarked}
+      post={post}
       onPostLikeButtonClick={onPostLikeButtonClick}
       onPostBookmarkButtonClick={onPostBookmarkButtonClick}
     />

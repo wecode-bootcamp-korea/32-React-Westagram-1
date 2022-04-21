@@ -50,48 +50,43 @@ const Dropdown = ({ type, isActive, searchResultArray }) => {
   ];
 
   const dropdownList = dropdownLists.find(list => list.type === type);
+  const { className } = dropdownList;
   let dropdownItems;
 
   if (type === "profileSetting") {
-    dropdownItems = dropdownList.array.map(item => (
-      <li
-        className={`${dropdownList.className}-item dropdown-item`}
-        key={item.id}
-      >
-        <a href="#" aria-label={item.ariaLabel}>
-          <i className={item.iconClassName} aria-hidden />
-          <span>{item.title}</span>
-        </a>
-      </li>
-    ));
+    dropdownItems = dropdownList.array.map(
+      ({ id, ariaLabel, iconClassName, title }) => (
+        <li className={`${className}-item dropdown-item`} key={id}>
+          <a href="#" aria-label={ariaLabel}>
+            <i className={iconClassName} aria-hidden />
+            <span>{title}</span>
+          </a>
+        </li>
+      )
+    );
   } else if (type === "searchResult") {
-    dropdownItems = dropdownList.array.map(item => (
-      <li
-        className={`${dropdownList.className}-item dropdown-item`}
-        key={item.id}
-      >
-        <a href="#">
-          <div className={`${dropdownList.className}-item-left`}>
-            <img
-              alt={`Profile of ${item.username}`}
-              src={`${item.profileImgUrl}`}
-              className={`${dropdownList.className}-item-img`}
-            />
-            <div>
-              <strong className={`${dropdownList.className}-item-id`}>
-                {item.userId}
-              </strong>
-              <span className={`${dropdownList.className}-item-id`}>
-                {item.username}
-              </span>
+    dropdownItems = dropdownList.array.map(
+      ({ id, username, profileImgUrl, userId }) => (
+        <li className={`${className}-item dropdown-item`} key={id}>
+          <a href="#">
+            <div className={`${className}-item-left`}>
+              <img
+                alt={`Profile of ${username}`}
+                src={`${profileImgUrl}`}
+                className={`${className}-item-img`}
+              />
+              <div>
+                <strong className={`${className}-item-id`}>{userId}</strong>
+                <span className={`${className}-item-id`}>{username}</span>
+              </div>
             </div>
-          </div>
-          <div className={`${dropdownList.className}-item-right`}>
-            <i className="fa-solid fa-x" aria-hidden />
-          </div>
-        </a>
-      </li>
-    ));
+            <div className={`${className}-item-right`}>
+              <i className="fa-solid fa-x" aria-hidden />
+            </div>
+          </a>
+        </li>
+      )
+    );
   }
 
   return (

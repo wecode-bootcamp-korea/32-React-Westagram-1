@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 
 const Login = () => {
-  const [isButtonValid, setIsButtonValid] = useState(false);
-  const [passwordInputType, setPasswordInputType] = useState("password");
-  const [pwShowButtonText, setPwShowButtonText] = useState("비밀번호 표시");
-  const [crudentials, setCrudentials] = useState({
-    id: "",
+  const [isShowPassword, setIsShowPassword] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    email: "",
     password: "",
   });
-  const { id, password } = crudentials;
+
+  const navigate = useNavigate();
+  const { email, password } = userInfo;
+  const isButtonValid = email.includes("@") && password.length >= 8;
 
   const handleChange = e => {
     const { name, value } = e.target;
 
-    setCrudentials(prev => {
+    setUserInfo(prev => {
       return {
         ...prev,
         [name]: value,
@@ -25,61 +25,48 @@ const Login = () => {
   };
 
   const onPwShowButtonClick = () => {
-    if (passwordInputType === "password") {
-      setPasswordInputType("text");
-      setPwShowButtonText("숨기기");
-    } else {
-      setPasswordInputType("password");
-      setPwShowButtonText("비밀번호 표시");
-    }
+    setIsShowPassword(isShowPassword => !isShowPassword);
   };
 
-  const navigate = useNavigate();
+  const successLogin = accessToken => {
+    localStorage.setItem("token", accessToken);
+    navigate("/main-hyeonsu");
+  };
 
-  useEffect(() => {
-    const isIdValid = id.includes("@");
-    const isPwValid = password.length >= 8;
-
-    setIsButtonValid(isIdValid && isPwValid);
-  }, [id, password]);
-
-  const onSubmit = e => {
+  const postUserInfo = e => {
     e.preventDefault();
 
-    fetch("http://10.58.1.245:8000/users/signin", {
+    fetch("http://10.58.1.245:8000/users/login", {
       method: "POST",
       body: JSON.stringify({
-        email: id,
-        password: password,
+        email,
+        password,
       }),
     })
       .then(response => response.json())
-      .then(json => {
-        if (json.message === "SUCCESS") {
-          localStorage.setItem("token", json.access_token);
-          navigate("/main-hyeonsu");
-        } else {
-          alert("일치하지 않는 정보입니다!");
-        }
-      });
+      .then(({ message, access_token }) =>
+        message === "SUCCESS"
+          ? successLogin(access_token)
+          : alert("일치하지 않는 정보입니다!")
+      );
   };
 
   return (
     <div className="login">
       <h1 className="login-title">westagram</h1>
-      <form action="#" className="login-inputs" onSubmit={onSubmit}>
+      <form action="#" className="login-inputs" onSubmit={postUserInfo}>
         <input
           className="login-input input-id"
           type="text"
           placeholder="전화번호, 사용자 이름 또는 이메일"
-          name="id"
-          value={id}
+          name="email"
+          value={email}
           onChange={handleChange}
         />
         <div className="login-input-wrapper">
           <input
             className="login-input input-pw"
-            type={passwordInputType}
+            type={isShowPassword ? "text" : "password"}
             placeholder="비밀번호"
             name="password"
             value={password}
@@ -90,7 +77,7 @@ const Login = () => {
             onClick={onPwShowButtonClick}
             className="pw-show-button"
           >
-            {pwShowButtonText}
+            {isShowPassword ? "숨기기" : "비밀번호 표시"}
           </button>
         </div>
 

@@ -2,21 +2,13 @@ import React, { useEffect, useState } from "react";
 import CommentList from "../CommentList/CommentList";
 import "./Post.scss";
 
-const Post = ({
-  id,
-  userName,
-  isLiked,
-  isBookmarked,
-  onPostLikeButtonClick,
-  onPostBookmarkButtonClick,
-}) => {
+const Post = ({ post, onPostLikeButtonClick, onPostBookmarkButtonClick }) => {
   const [commentList, setCommentList] = useState([]);
   const [commentInput, setCommentInput] = useState("");
-  const [isCommentButtonValid, setIsCommentButtonValid] = useState(false);
   const [commentCounter, setCommentCounter] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:3000/data/common/commentData.json")
+    fetch("data/common/commentData.json")
       .then(res => res.json())
       .then(data => {
         setCommentList(data);
@@ -24,11 +16,8 @@ const Post = ({
       });
   }, []);
 
-  useEffect(() => {
-    commentInput.length >= 1
-      ? setIsCommentButtonValid(true)
-      : setIsCommentButtonValid(false);
-  }, [commentInput]);
+  const { id, userName, isLiked, isBookmarked } = post;
+  const isCommentButtonValid = commentInput.length >= 1;
 
   const onSubmit = e => {
     e.preventDefault();
@@ -62,7 +51,7 @@ const Post = ({
 
   const onCommentLikeButtonClick = clickedItemId => {
     const commentListCopy = [...commentList];
-    const clickedItem = commentList.find(
+    const clickedItem = commentListCopy.find(
       comment => comment.id === clickedItemId
     );
     clickedItem.isLiked = !clickedItem.isLiked;

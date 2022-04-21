@@ -10,7 +10,7 @@ const NavHyeonsu = () => {
   const [searchResultArray, setSearchResultArray] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/data/hyeonsu/userData.json")
+    fetch("data/hyeonsu/userData.json")
       .then(res => res.json())
       .then(data => {
         setUserData(data);

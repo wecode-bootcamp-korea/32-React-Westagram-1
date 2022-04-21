@@ -3,10 +3,10 @@ import { FOOTER_ITEM } from "./footerData";
 import "./Footer.scss";
 
 const Footer = () => {
-  const footerList = FOOTER_ITEM.map(item => (
-    <li key={item.id} className="aside-footer-item">
+  const footerList = FOOTER_ITEM.map(({ id, content }) => (
+    <li key={id} className="aside-footer-item">
       <a className="aside-footer-item-link" href="#">
-        {item.content}
+        {content}
       </a>
     </li>
   ));

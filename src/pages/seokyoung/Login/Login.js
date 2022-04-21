@@ -3,25 +3,31 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Login() {
+  const [userInfo, setUserInfo] = useState({ text: "", password: "" });
+  const [isShowPw, setIsShowPw] = useState(false);
+
+  const isBtnActive =
+    userInfo.text.includes("@") && userInfo.password.length >= 8;
   const navigate = useNavigate();
+
+  const showPwBtn = () => {
+    setIsShowPw(isShowPw => !isShowPw);
+  };
+
+  const checkIdPw = e => {
+    setUserInfo({ ...userInfo, [e.target.type]: e.target.value });
+  };
+
   const goToMain = () => {
     navigate("/main-seokyoung");
   };
 
-  const [values, setValues] = useState({ text: "", password: "" });
-
-  const checkIdPw = e => {
-    setValues({ ...values, [e.target.type]: e.target.value });
-  };
-
-  const active = values.text.includes("@") && values.password.length >= 8;
-
-  const signUp = () => {
+  const postUserData = () => {
     fetch("https://westagram-signup.herokuapp.com/signup", {
       method: "POST",
       body: JSON.stringify({
-        email: values.text,
-        password: values.password,
+        email: userInfo.text,
+        password: userInfo.password,
       }),
     })
       .then(res => res.json())
@@ -30,6 +36,7 @@ function Login() {
           ? localStorage.setItem("token", result.access_token)
           : alert("nop");
       });
+    goToMain();
   };
 
   return (
@@ -47,19 +54,21 @@ function Login() {
             <input
               id="inputPass"
               className="inputUserInfo"
-              type="password"
+              type={!isShowPw ? "text" : "password"}
               placeholder="비밀번호"
             />
           </form>
           <input
             id="loginBtn"
-            className={!active ? "loginBtn" : "activeLogin"}
+            className={!isBtnActive ? "loginBtn" : "activeLogin"}
             type="button"
             value="로그인"
-            disabled={!active}
-            onClick={signUp}
-            // onClick={goToMain}
+            disabled={!isBtnActive}
+            onClick={postUserData}
           />
+          <button type="button" onClick={showPwBtn}>
+            {isShowPw ? "비밀번호 보기" : "숨기기"}
+          </button>
         </div>
         <a className="forgotPassword" href="main.html">
           비밀번호를 잊으셨나요?

@@ -23,13 +23,13 @@ function Login() {
         email: values.text,
         password: values.password,
       }),
-    });
-    .then(res => res.json())
-    .then(result => {
-      result.message === "SUCCESS"
-        ? localStorage.setItem("token", result.access_token)
-        : alert("nop");
-    });
+    })
+      .then(res => res.json())
+      .then(result => {
+        result.message === "SUCCESS"
+          ? localStorage.setItem("token", result.access_token)
+          : alert("nop");
+      });
   };
 
   return (

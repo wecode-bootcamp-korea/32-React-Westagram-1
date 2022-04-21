@@ -35,6 +35,11 @@ const FeedPost = props => {
     setInputValue("");
   }
 
+  function deleteBtn(id) {
+    const newCommentList = comments.filter(item => item.id !== id);
+    setComments(newCommentList);
+  }
+
   const feedlist = props.feed.map((x, index) => {
     return (
       <article key={index} className="feedPost">
@@ -45,7 +50,7 @@ const FeedPost = props => {
         <img className="feedImg" src={x.img} alt="" />
         <div className="commentBox">
           <CommentLogoBox />
-          <Comments commentsList={comments} />
+          <Comments commentsList={comments} deleteBtn={deleteBtn} />
           <InputBox
             addComment={addComment}
             inputChange={inputChange}

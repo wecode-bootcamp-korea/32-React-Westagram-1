@@ -28,8 +28,8 @@
   {
     "id": 2,
     "userName": "voyage",
-    "userImg": "/images/kyusung/me.png",
-    "feedImg": "/images/kyusung/westagramPuppy.jpg",
+    "userImg": "/images/kyusung/wecode1.png",
+    "feedImg": "/images/kyusung/wecode1.png",
     "comment": [
       {
         "id": 1,
@@ -40,13 +40,13 @@
       {
         "id": 2,
         "userName": "joonsikyang",
-        "content": "피드 이쁘네여",
+        "content": "토요일 불코!!",
         "isLiked": false
       },
       {
         "id": 3,
         "userName": "jayPark",
-        "content": "당신은 누구인가여?",
+        "content": "수광님이 사주신 아슈크림!",
         "isLiked": false
       }
     ]
@@ -54,8 +54,8 @@
   {
     "id": 3,
     "userName": "voyage",
-    "userImg": "/images/kyusung/me.png",
-    "feedImg": "/images/kyusung/westagramPuppy.jpg",
+    "userImg": "/images/kyusung/wecode2.png",
+    "feedImg": "/images/kyusung/wecode2.png",
     "comment": [
       {
         "id": 1,
@@ -80,8 +80,8 @@
   {
     "id": 4,
     "userName": "voyage",
-    "userImg": "/images/kyusung/me.png",
-    "feedImg": "/images/kyusung/westagramPuppy.jpg",
+    "userImg": "/images/kyusung/wecode3.png",
+    "feedImg": "/images/kyusung/wecode3.png",
     "comment": [
       {
         "id": 1,
@@ -106,19 +106,19 @@
   {
     "id": 5,
     "userName": "voyage",
-    "userImg": "/images/kyusung/me.png",
-    "feedImg": "/images/kyusung/westagramPuppy.jpg",
+    "userImg": "/images/kyusung/wecode4.png",
+    "feedImg": "/images/kyusung/wecode4.png",
     "comment": [
       {
         "id": 1,
         "userName": "wecode",
-        "content": "나는 누구 여긴 어디?",
+        "content": "선정릉 월요일 쉬는 날...",
         "isLiked": true
       },
       {
         "id": 2,
         "userName": "joonsikyang",
-        "content": "피드 이쁘네여",
+        "content": "동기분들이 다 멋있고 이쁘네여",
         "isLiked": false
       },
       {

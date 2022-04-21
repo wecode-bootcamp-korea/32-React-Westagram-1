@@ -10,8 +10,10 @@ function PutPostFeedHandler({
 }) {
   const iconHandler = e => {
     e.target.className = `${
-      e.target.className ? "fa-solid" : "fa-regular"
-    }fa-heart`;
+      e.target.className === "fa-regular fa-heart"
+        ? "fa-solid fa-heart"
+        : "fa-regular fa-heart"
+    }`;
   };
 
   return feedList.map(data => {

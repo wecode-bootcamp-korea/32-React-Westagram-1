@@ -29,28 +29,28 @@ const Aside = () => {
         </div>
         <div className="stories">
           <div className="story-info">
-            <img src="/images/kyusung/feedimg.jpg" alt="" />
+            <img src="/images/kyusung/feedimg.jpg" alt="storyFeed1" />
             <div className="story-info-el">
               <p>voyage</p>
               <span>16분전</span>
             </div>
           </div>
           <div className="story-info">
-            <img src="/images/kyusung/asideImg1.png" alt="" />
+            <img src="/images/kyusung/asideImg1.png" alt="storyFeed2" />
             <div className="story-info-el">
               <p>wecode</p>
               <span>4시간전</span>
             </div>
           </div>
           <div className="story-info">
-            <img src="/images/kyusung/asideImg2.png" alt="" />
+            <img src="/images/kyusung/asideImg2.png" alt="storyFeed3" />
             <div className="story-info-el">
               <p>chlrbtjd</p>
               <span>1시간전</span>
             </div>
           </div>
           <div className="story-info">
-            <img src="/images/kyusung/asideImg3.png" alt="" />
+            <img src="/images/kyusung/asideImg3.png" alt="storyFeed4" />
             <div className="story-info-el">
               <p>coding</p>
               <span>40분전</span>
@@ -65,7 +65,7 @@ const Aside = () => {
         </div>
         <div className="recommends">
           <div className="recommend-info">
-            <img src="/images/kyusung/asideImg1.png" alt="" />
+            <img src="/images/kyusung/asideImg1.png" alt="storyRecomment-Img" />
             <div className="recommend-info-el">
               <p>wecode</p>
               <span>4시간전</span>

@@ -1,4 +1,3 @@
-import React from "react";
 import "./Comment.scss";
 
 function Comment({ commentList, handleDelete, changeIconHandler }) {

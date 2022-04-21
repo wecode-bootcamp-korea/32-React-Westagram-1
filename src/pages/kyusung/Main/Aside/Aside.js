@@ -1,12 +1,12 @@
 import "./Aside.scss";
+import AsideBottomDescription from "../AsideBottomDescription/AsideBottomDescription";
 const Aside = () => {
   const followHandler = e => {
-    if (e.target.className === "follow false") {
-      e.target.className = "follow true";
-    } else if (e.target.className !== "follow false") {
-      e.target.className = "follow false";
-    }
+    e.target.className = `follow ${
+      e.target.classList.contains("false") ? "true" : "false"
+    }`;
   };
+
   return (
     <aside className="main-right">
       <div className="rightHeader">
@@ -76,16 +76,7 @@ const Aside = () => {
           </div>
         </div>
       </div>
-      <div className="westagram-info">
-        <span>소개</span>&middot;
-        <span>도움말</span>&middot;
-        <span>홍보 센터</span>&middot;
-        <span>채용 정보</span>&middot;
-        <span>개인정보 처리방침</span>&middot;
-        <span>약관</span>&middot;
-        <span>위치</span>
-        <span>© 2022 INSTAGRAM FROM META</span>
-      </div>
+      <AsideBottomDescription />
     </aside>
   );
 };

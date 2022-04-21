@@ -134,34 +134,19 @@
 
         span {
           color: #a2a2a2;
-        }
 
-        span:nth-last-child(1) {
-          position: absolute;
-          right: 0;
-          border: none;
-          cursor: pointer;
+          &:nth-last-child(1) {
+            position: absolute;
+            right: 0;
+            border: none;
+            cursor: pointer;
+          }
         }
 
         .follow.true {
           color: rgb(0, 0, 255);
         }
       }
-    }
-  }
-  .westagram-info {
-    max-width: 250px;
-    margin-top: 10px;
-    color: #a2a2a2;
-
-    span {
-      font-size: 14px;
-      color: #a2a2a2;
-    }
-
-    span:nth-last-child(1) {
-      display: block;
-      margin-top: 10px;
     }
   }
 }

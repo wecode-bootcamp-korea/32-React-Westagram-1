@@ -6,6 +6,20 @@ const Login = () => {
   const navigate = useNavigate();
 
   const goToMain = () => {
+    // fetch("http://10.58.0.177:8000/users/signin", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     email: id,
+    //     password: pw,
+    //     name: "voyage",
+    //     phone_number: "010-0100-0100",
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     console.log("결과: ", result);
+    //     navigate("/main-kyusung");
+    //   });
     navigate("/main-kyusung");
   };
 
@@ -17,7 +31,7 @@ const Login = () => {
   return (
     <div className="container">
       <div className="main">
-        <p className="westagram-title">Westagram</p>
+        <h1 className="westagram-title">Westagram</h1>
         <div className="login">
           <input
             id="login_id"

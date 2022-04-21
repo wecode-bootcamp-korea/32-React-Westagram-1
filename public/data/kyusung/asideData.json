@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "userName": "voyage",
+    "userImg": "/images/kyusung/feedimg.jpg",
+    "commentTime": "16분전"
+  },
+  {
+    "id": 2,
+    "userName": "wecode",
+    "userImg": "/images/kyusung/asideImg1.png",
+    "commentTime": "4시간전"
+  },
+  {
+    "id": 3,
+    "userName": "chlrbtjd",
+    "userImg": "/images/kyusung/asideImg2.png",
+    "commentTime": "1시간전"
+  },
+  {
+    "id": 4,
+    "userName": "coding",
+    "userImg": "/images/kyusung/asideImg3.png",
+    "commentTime": "40분전"
+  }
+]

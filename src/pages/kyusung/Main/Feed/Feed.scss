@@ -1,0 +1,17 @@
+.mainPage {
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  padding-top: 100px;
+  background-color: #fafafa;
+
+  .feeds {
+    width: 40%;
+    background-color: #fff;
+    overflow: hidden;
+
+    article {
+      padding-bottom: 25px;
+    }
+  }
+}

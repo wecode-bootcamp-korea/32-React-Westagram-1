@@ -1,29 +1,44 @@
 import { useState } from "react";
 
 function PostFeed({ data, addComment }) {
-  const [userId, setUserId] = useState("");
-  const [comment, setComment] = useState("");
+  const [putUserComment, setUserComment] = useState({
+    userName: "",
+    content: "",
+  });
+  const { userName, content } = putUserComment;
+
+  const putUserCommentHandler = e => {
+    e.preventDefault();
+    const { name, value } = e.target;
+
+    setUserComment(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
 
   return (
     <form
       id="instaForm"
       onSubmit={e => {
-        addComment(e, data.id, userId, comment);
+        addComment(e, data.id, putUserComment);
       }}
     >
       <input
-        id="username"
+        name="userName"
         type="text"
         placeholder="사용자 아이디를 입력하세요!"
-        value={userId}
-        onChange={e => setUserId(e.target.value)}
+        value={userName}
+        onChange={putUserCommentHandler}
       />
       <input
-        id="userComments"
+        name="content"
         type="text"
         placeholder="댓글 달기!"
-        value={comment}
-        onChange={e => setComment(e.target.value)}
+        value={content}
+        onChange={putUserCommentHandler}
       />
       <button id="submit" type="submit">
         제출

@@ -1,23 +1,21 @@
 import "./Comment.scss";
 
 function Comment({ commentList, handleDelete, changeIconHandler, feedListId }) {
-  const postComment = commentList.map(commentItem => {
+  const postComment = commentList.map(({ id, userName, content, isLiked }) => {
     return (
-      <li key={commentItem.id}>
-        <span>{commentItem.userName}</span>
-        <p>{commentItem.content}</p>
+      <li key={id}>
+        <span>{userName}</span>
+        <p>{content}</p>
         <div className="comments-right-info">
           <button
             className="deleteComments"
-            onClick={() => handleDelete(commentItem.id, feedListId)}
+            onClick={() => handleDelete(id, feedListId)}
           >
             삭제
           </button>
           <i
-            className={`${
-              commentItem.isLiked ? "fa-solid" : "fa-regular"
-            } fa-heart`}
-            onClick={() => changeIconHandler(commentItem.id, feedListId)}
+            className={`${isLiked ? "fa-solid" : "fa-regular"} fa-heart`}
+            onClick={() => changeIconHandler(id, feedListId)}
           />
         </div>
       </li>

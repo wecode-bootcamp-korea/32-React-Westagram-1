@@ -1,6 +1,21 @@
+import { useState, useEffect } from "react";
 import "./Aside.scss";
 import AsideBottomDescription from "../AsideBottomDescription/AsideBottomDescription";
+import AsideStoryComponent from "../AsideStoryComponent/AsideStoryComponent";
+import AsideRecommendComponent from "../AsideRecommendComponent/AsideRecommendComponent";
 const Aside = () => {
+  const [AsideList, setAsideList] = useState([]);
+
+  useEffect(() => {
+    fetch("data/kyusung/asideData.json", {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setAsideList(data);
+      });
+  }, []);
+
   const followHandler = e => {
     e.target.className = `follow ${
       e.target.classList.contains("false") ? "true" : "false"
@@ -28,54 +43,10 @@ const Aside = () => {
           <p>모두 보기</p>
         </div>
         <div className="stories">
-          <div className="story-info">
-            <img src="/images/kyusung/feedimg.jpg" alt="storyFeed1" />
-            <div className="story-info-el">
-              <p>voyage</p>
-              <span>16분전</span>
-            </div>
-          </div>
-          <div className="story-info">
-            <img src="/images/kyusung/asideImg1.png" alt="storyFeed2" />
-            <div className="story-info-el">
-              <p>wecode</p>
-              <span>4시간전</span>
-            </div>
-          </div>
-          <div className="story-info">
-            <img src="/images/kyusung/asideImg2.png" alt="storyFeed3" />
-            <div className="story-info-el">
-              <p>chlrbtjd</p>
-              <span>1시간전</span>
-            </div>
-          </div>
-          <div className="story-info">
-            <img src="/images/kyusung/asideImg3.png" alt="storyFeed4" />
-            <div className="story-info-el">
-              <p>coding</p>
-              <span>40분전</span>
-            </div>
-          </div>
+          <AsideStoryComponent AsideList={AsideList} />
         </div>
       </div>
-      <div className="recommend">
-        <div className="recommend-header">
-          <p>회원님을 위한 추천</p>
-          <p>모두 보기</p>
-        </div>
-        <div className="recommends">
-          <div className="recommend-info">
-            <img src="/images/kyusung/asideImg1.png" alt="storyRecomment-Img" />
-            <div className="recommend-info-el">
-              <p>wecode</p>
-              <span>4시간전</span>
-              <span className="follow false" onClick={followHandler}>
-                팔로우
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <AsideRecommendComponent followHandler={followHandler} />
       <AsideBottomDescription />
     </aside>
   );

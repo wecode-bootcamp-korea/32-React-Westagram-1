@@ -14,8 +14,9 @@ const Feed = () => {
         setFeedList(data);
       });
   }, []);
-  const addComment = (e, id, userName, content) => {
+  const addComment = (e, id, { userName, content }) => {
     e.preventDefault();
+
     const newFeedList = [...feedList];
     const currentIdx = feedList.findIndex(el => el.id === id);
     const currentFeed = feedList[currentIdx];

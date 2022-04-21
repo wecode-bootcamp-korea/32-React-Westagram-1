@@ -17,11 +17,13 @@ function PutPostFeedHandler({
   };
 
   return feedList.map(data => {
+    const { id, comment, userImg, feedImg } = data;
+
     return (
-      <article key={data.id}>
+      <article key={id}>
         <div className="articleHeader">
           <div className="headerLeft">
-            <img src={data.userImg} alt="feedUserImg" />
+            <img src={userImg} alt="feedUserImg" />
             <span>Wecode 32기~!</span>
           </div>
           <div className="headerRight">
@@ -30,7 +32,7 @@ function PutPostFeedHandler({
         </div>
 
         <div className="feeds-img">
-          <img src={data.feedImg} alt="my Article" />
+          <img src={feedImg} alt="my Article" />
         </div>
         <div className="feeds-img-info">
           <div className="feeds-info-img">
@@ -39,7 +41,7 @@ function PutPostFeedHandler({
             <i className="fa-regular fa-bookmark" />
           </div>
           <div className="likes">
-            <img src={data.userImg} alt="feedLike" />
+            <img src={userImg} alt="feedLike" />
 
             <p>
               <span className="author">Voyage_dev</span>님 외
@@ -47,8 +49,8 @@ function PutPostFeedHandler({
             </p>
           </div>
           <Comment
-            feedListId={data.id}
-            commentList={data.comment}
+            feedListId={id}
+            commentList={comment}
             handleDelete={handleDelete}
             changeIconHandler={changeIconHandler}
           />

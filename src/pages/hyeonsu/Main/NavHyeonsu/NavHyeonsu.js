@@ -7,16 +7,18 @@ const NavHyeonsu = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [userData, setUserData] = useState([]);
-  const [searchResultArray, setSearchResultArray] = useState([]);
 
   useEffect(() => {
     fetch("data/hyeonsu/userData.json")
       .then(res => res.json())
       .then(data => {
         setUserData(data);
-        setSearchResultArray(data);
       });
   }, []);
+
+  const filteredUserData = userData.filter(user =>
+    user.userId.toLowerCase().startsWith(searchInput)
+  );
 
   const onProfileSettingButtonFocus = () => {
     setIsProfileSettingActive(true);
@@ -28,12 +30,6 @@ const NavHyeonsu = () => {
 
   const onSearchInputChange = e => {
     setSearchInput(e.target.value);
-
-    const filteredArray = [...userData].filter(item =>
-      item.userId.startsWith(e.target.value.toLowerCase())
-    );
-
-    setSearchResultArray(filteredArray);
   };
 
   const onSearchInputFocus = () => {
@@ -72,7 +68,7 @@ const NavHyeonsu = () => {
           <Dropdown
             type="searchResult"
             isActive={isSearchActive}
-            searchResultArray={searchResultArray}
+            searchResultArray={filteredUserData}
           />
         </div>
 

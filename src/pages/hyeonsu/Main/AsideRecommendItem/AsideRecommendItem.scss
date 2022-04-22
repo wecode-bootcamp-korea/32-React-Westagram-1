@@ -1,0 +1,40 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
+.aside-recommend {
+  &-item {
+    @include flexbox(space-between);
+
+    padding: 8px 0;
+
+    &-left {
+      @include flexbox(flex-start);
+    }
+
+    &-profile {
+      display: block;
+      width: 32px;
+      height: 32px;
+      margin-right: 12px;
+      border-radius: 50%;
+    }
+
+    &-content {
+      .user-id {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &-reason {
+    display: block;
+    color: $secondary;
+    font-size: 12px;
+  }
+
+  &-button {
+    color: $blue;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}

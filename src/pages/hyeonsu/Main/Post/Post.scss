@@ -1,0 +1,157 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
+.post {
+  margin-bottom: 30px;
+  background-color: $white;
+  border: 1px solid $border;
+
+  &-header {
+    @include flexbox(space-between);
+    padding: 16px;
+
+    &-left {
+      a {
+        @include flexbox(flex-start);
+      }
+    }
+
+    &-profile {
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+      border-radius: 50%;
+    }
+
+    &-button {
+      font-size: 1.2em;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  &-image {
+    width: 100%;
+    background-image: url(../../../../assets/images/hyeonsu/feed-image.jpeg);
+    background-size: cover;
+    background-position: center center;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &-contents {
+    padding: 16px;
+  }
+
+  &-action-buttons {
+    @include flexbox(space-between);
+
+    margin-bottom: 12px;
+
+    .button-delete:hover,
+    .button-heart:hover,
+    .post-action-buttons button:hover {
+      color: $secondary;
+    }
+
+    .post-action-button {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      font-size: 24px;
+      text-align: center;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .button-heart.liked .fa-heart {
+      color: $red;
+    }
+
+    .button-bookmark.bookmarked .fa-bookmark {
+      color: $primary;
+    }
+  }
+
+  &-liked {
+    @include flexbox(flex-start);
+
+    margin-bottom: 16px;
+
+    &-title {
+      @include flexbox(flex-start);
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      img {
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        border-radius: 50%;
+      }
+    }
+
+    .has-margin {
+      margin-right: 4px;
+    }
+
+    &-modal-button {
+      padding: 0;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  &-description {
+    padding: 4px 0;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-created-at {
+    cursor: pointer;
+
+    span {
+      color: $secondary;
+      font-size: 0.7em;
+    }
+  }
+
+  &-comment {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid $border;
+
+    &-input {
+      width: 100%;
+      padding: 16px;
+      border: 0;
+    }
+
+    &-button {
+      flex-shrink: 0;
+      padding-right: 16px;
+      color: $blue;
+      font-weight: 700;
+      cursor: pointer;
+      opacity: 1;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+}

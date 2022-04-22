@@ -1,0 +1,35 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
+.post-comment-item {
+  @include flexbox(space-between);
+
+  align-items: center;
+  padding: 4px 0;
+
+  &-left {
+    a {
+      margin-right: 12px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-right {
+    flex-shrink: 0;
+
+    .button-heart {
+      &.liked {
+        .fa-heart {
+          color: $red;
+        }
+      }
+    }
+
+    .fa-heart {
+      margin-right: 8px;
+    }
+  }
+}

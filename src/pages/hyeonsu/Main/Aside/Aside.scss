@@ -1,0 +1,54 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
+.aside {
+  position: fixed;
+  top: 0;
+  right: calc((100vw - 935px) / 2);
+  width: 300px;
+  padding: 30px 24px 30px 30px;
+  margin-top: 56px;
+  background-color: #fafafa;
+
+  &-profile {
+    @include flexbox(space-between);
+
+    margin-bottom: 24px;
+
+    &-left {
+      @include flexbox(flex-start);
+    }
+
+    &-img {
+      display: block;
+      width: 56px;
+      height: 56px;
+      margin-right: 16px;
+      border-radius: 50%;
+    }
+
+    &-id {
+      .user-id {
+        display: block;
+        font-size: 14px;
+      }
+
+      .user-username {
+        color: $secondary;
+        font-size: 14px;
+      }
+    }
+
+    &-button {
+      color: $blue;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .aside {
+    display: none;
+  }
+}

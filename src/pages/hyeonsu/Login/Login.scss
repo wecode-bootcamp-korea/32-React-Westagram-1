@@ -1,1 +1,79 @@
-hi
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.login {
+  @include pos-center;
+  @include column-flexbox;
+
+  padding: 60px;
+  border: 1px solid $border;
+
+  &-title {
+    font-family: "Lobster", cursive;
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 100px;
+  }
+
+  &-inputs {
+    @include column-flexbox(flex-start, flex-start);
+
+    width: 100%;
+    margin-bottom: 50px;
+
+    .login-input-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: 15px;
+
+      .input-pw {
+        margin-bottom: 0;
+      }
+
+      .pw-show-button {
+        @include pos-center-y;
+        right: 4px;
+        text-align: right;
+      }
+    }
+
+    .login-input {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 15px;
+      background-color: $background;
+      border: 1px solid $border;
+      border-radius: 4px;
+      font-size: 16px;
+
+      &::placeholder {
+        color: #999;
+      }
+
+      &:focus {
+        outline-width: 1px;
+        outline-color: #333;
+      }
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 8px 0;
+      color: $white;
+      background-color: $blue;
+      border: none;
+      border-radius: 4px;
+      opacity: 1;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &-link {
+    color: $blue-dark;
+    font-size: 14px;
+    text-decoration: none;
+  }
+}

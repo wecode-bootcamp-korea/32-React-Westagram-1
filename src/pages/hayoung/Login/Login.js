@@ -1,5 +1,4 @@
-import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./Login.scss";
@@ -10,7 +9,7 @@ const Login = () => {
   const [btnChange, setBtnChange] = useState(true);
 
   const goToMain = () => {
-    fetch("http://10.58.2.16:8000/users/signin", {
+    fetch("http://10.58.1.245:8000/users/login", {
       method: "POST",
       body: JSON.stringify({
         email: user.id,
@@ -21,11 +20,17 @@ const Login = () => {
       .then(result => {
         if (result.message === "SUCCESS") {
           alert("축하");
+          localStorage.setItem("token", result.access_token);
           navigate("/main-hayoung");
         } else {
           alert("수고");
+          navigate("/Signup-hayoung");
         }
       });
+  };
+
+  const goToSignup = () => {
+    navigate("/Signup-hayoung");
   };
 
   const isValidation = () => {
@@ -76,6 +81,11 @@ const Login = () => {
         <a className="forgetPwLink" href="#">
           비밀번호를 잊으셨나요?
         </a>
+      </div>
+      <div className="signupBox">
+        <button className="signupLink" type="button" onClick={goToSignup}>
+          회원가입
+        </button>
       </div>
     </div>
   );

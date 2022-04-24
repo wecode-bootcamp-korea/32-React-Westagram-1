@@ -51,36 +51,6 @@
         }
       }
     }
-
-    .story_id {
-      display: flex;
-
-      .story_id_profile {
-        width: 40px;
-        height: 40px;
-        margin-left: 15px;
-        margin-bottom: 15px;
-        padding: 2px;
-        border-radius: 100%;
-        outline: 2px solid #ff0000;
-      }
-      .story_id_name {
-        display: flex;
-        flex-direction: column;
-        margin-top: 10px;
-        margin-left: 10px;
-
-        p {
-          &:nth-child(1) {
-            font-weight: bold;
-          }
-
-          &:nth-child(2) {
-            color: gray;
-          }
-        }
-      }
-    }
   }
 
   .recommend_box {
@@ -103,39 +73,6 @@
         &:nth-child(2) {
           font-weight: bold;
         }
-      }
-    }
-
-    .recommend_id {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-
-      .recommend_id_profile {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 15px;
-        border-radius: 100%;
-      }
-      .recommend_id_name {
-        p {
-          &:nth-child(1) {
-            font-weight: bold;
-          }
-
-          &:nth-child(2) {
-            color: gray;
-          }
-        }
-      }
-
-      .follower_text {
-        display: flex;
-        justify-content: flex-end;
-        width: 60px;
-        color: #5ba8f2;
-        font-weight: bold;
-        text-align: center;
       }
     }
   }
